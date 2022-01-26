@@ -17,17 +17,20 @@
 package uk.gov.hmrc.test.ui.pages
 
 import org.openqa.selenium.By
+import uk.gov.hmrc.test.ui.conf.TestConfiguration
 
-object Turnover extends BasePage {
+object ReportTaxFraudHomePage extends BasePage {
+  val url: String     = TestConfiguration.url("tax-fraud-reporting-frontend")
+  val reportTaxFraudHome= "Using this service - Report tax fraud or evasion - GOV.UK"
 
-  val turnover      = "Enter your turnover"
-  val turnoverInput = "turnover"
-
-  def provideTurnoverAmount(amount: String): CostOfGoods.type = {
-    onPage(turnover)
-    driver.findElement(By.id(turnoverInput)).sendKeys(amount)
-    submitPage()
-    CostOfGoods
+  def loadPage: this.type = {
+    driver.navigate().to(url)
+    onPage(reportTaxFraudHome)
+    this
   }
 
+  def startApplication: ActivityType.type = {
+    submitPage()
+    ActivityType
+  }
 }

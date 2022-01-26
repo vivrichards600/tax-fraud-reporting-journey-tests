@@ -16,7 +16,7 @@
 
 package uk.gov.hmrc.test.ui.specs
 
-import uk.gov.hmrc.test.ui.pages.CheckYourVATHomePage.provideVATPeriod
+import uk.gov.hmrc.test.ui.pages.ReportTaxFraudHomePage.provideVATPeriod
 import uk.gov.hmrc.test.ui.pages.CheckYourVATResult.{result, useSetVATFlatRate, useUniqueVATFlatRate}
 import uk.gov.hmrc.test.ui.pages._
 import uk.gov.hmrc.test.ui.specs.tags.ZapTests
@@ -29,7 +29,7 @@ class ExampleSpec extends BaseSpec {
       //Remove ZapTests tag if not required
 
       Given("I am on the Check your VAT flat rate service")
-      CheckYourVATHomePage.loadPage
+      ReportTaxFraudHomePage.loadPage
 
       When("I submit my VAT for goods under £1000 for the year")
       provideVATPeriod("Annually")
@@ -43,7 +43,7 @@ class ExampleSpec extends BaseSpec {
 
     Scenario("User is not a limited cost business that pays annually and should use the VAT flat rate") {
       Given("I am on the Check your VAT flat rate service")
-      CheckYourVATHomePage.loadPage
+      ReportTaxFraudHomePage.loadPage
 
       When("I submit my VAT information for goods over £1000 for the year")
       provideVATPeriod("Annually")
@@ -57,7 +57,7 @@ class ExampleSpec extends BaseSpec {
 
     Scenario("User is a limited cost business that pays quarterly and should use the 16.5% flat rate") {
       Given("I am on the Check your VAT flat rate service")
-      CheckYourVATHomePage.loadPage
+      ReportTaxFraudHomePage.loadPage
 
       When("I submit my VAT information for goods under £250 for the quarter")
       provideVATPeriod("Quarterly")
@@ -71,7 +71,7 @@ class ExampleSpec extends BaseSpec {
 
     Scenario("User is not a limited cost business that pays quarterly and should use the VAT flat rate") {
       Given("I am on the Check your VAT flat rate service")
-      CheckYourVATHomePage.loadPage
+      ReportTaxFraudHomePage.loadPage
 
       When("I submit my VAT information for goods for £250 for the quarter")
       provideVATPeriod("Quarterly")
