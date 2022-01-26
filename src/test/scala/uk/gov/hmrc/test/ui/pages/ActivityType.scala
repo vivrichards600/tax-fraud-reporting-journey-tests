@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 HM Revenue & Customs
+ * Copyright 2022 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,18 +17,31 @@
 package uk.gov.hmrc.test.ui.pages
 
 import org.openqa.selenium.By
+import uk.gov.hmrc.test.ui.utils.Lists._
+
+import scala.util.Random
 
 object ActivityType extends BasePage {
 
-  val activityType = " What type of HMRC activity are you reporting? - Report tax fraud or evasion - GOV.UK"
-  val fraudInput = "Fraud"
-  val inputBox = "value"
+  val activityType               = "What type of HMRC activity are you reporting? - Report tax fraud or evasion - GOV.UK"
+  val random                     = new Random
+  val reportableActivity: String = validActivityTypeList(random.nextInt(validActivityTypeList.length))
+  val otherActivity: String      = otherActivityTypeList(random.nextInt(otherActivityTypeList.length))
+  val inputBox                   = "value"
 
-  def reportingFraud(amount: String): IndividualOrBusiness.type = {
+  def reportingFraud: PersonOrBusiness.type = {
     onPage(activityType)
-    driver.findElement(By.id(inputBox)).sendKeys(fraudInput)
+    driver.findElement(By.id(inputBox)).sendKeys(reportableActivity)
     submitPage()
-    IndividualOrBusiness
+    PersonOrBusiness
+  }
+
+  def reportingOther: DoNotUseThisService.type = {
+    Thread.sleep(1000)
+    onPage(activityType)
+    driver.findElement(By.id(inputBox)).sendKeys(otherActivity)
+    submitPage()
+    DoNotUseThisService
   }
 
 }

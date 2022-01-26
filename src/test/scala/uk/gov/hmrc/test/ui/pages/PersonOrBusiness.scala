@@ -17,21 +17,25 @@
 package uk.gov.hmrc.test.ui.pages
 
 import org.openqa.selenium.By
-import uk.gov.hmrc.test.ui.conf.TestConfiguration
 
-object ReportTaxFraudHomePage extends BasePage {
-  val url: String        = TestConfiguration.url("tax-fraud-reporting-frontend")
-  val reportTaxFraudHome = "Using this service - Report tax fraud or evasion - GOV.UK"
+object PersonOrBusiness extends BasePage {
 
-  def loadPage: this.type = {
-    driver.navigate().to(url)
-    onPage(reportTaxFraudHome)
-    this
+  val personOrBusiness: String = "Are you reporting an individual or a business? - Report tax fraud or evasion - GOV.UK"
+
+  def reportAnIndividual: IndividualInformationCheck.type = {
+    onPage(personOrBusiness)
+    //TODO request ID be changed to more meaningful
+    driver.findElement(By.id("value_0")).click()
+    submitPage()
+    IndividualInformationCheck
   }
 
-  def startApplication: ActivityType.type = {
-//    submitPage() will use when id of button has changed
-    driver.findElement(By.id("start-application"))
-    ActivityType
-  }
+//  def reportABusiness: BusinessInformationCheck.type = {
+//    onPage(personOrBusiness)
+//    //TODO request ID be changed to more meaningful
+//    driver.findElement(By.id("value_1")).click()
+//    submitPage()
+//    BusinessInformationCheck
+//  }
+
 }
