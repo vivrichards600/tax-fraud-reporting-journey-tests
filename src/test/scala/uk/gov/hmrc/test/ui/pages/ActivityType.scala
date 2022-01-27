@@ -36,10 +36,8 @@ object ActivityType extends BasePage {
     PersonOrBusiness
   }
 
-  def reportingOther: DoNotUseThisService.type = {
-    Thread.sleep(1000)
-    onPage(activityType)
-    driver.findElement(By.id(inputBox)).sendKeys(otherActivity)
+  def reportingOther(activity: String): DoNotUseThisService.type = {
+    driver.findElement(By.id(inputBox)).sendKeys(activity)
     submitPage()
     DoNotUseThisService
   }

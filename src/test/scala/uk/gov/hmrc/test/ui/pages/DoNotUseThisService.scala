@@ -25,7 +25,9 @@ object DoNotUseThisService extends BasePage {
 
   def result: String = {
     onPage(doNotUseThisService)
-    driver.findElement(By.tagName("h1")).getText
+
+    //request either id or p2 tag be put on to differentiate journeys
+    driver.findElement(By.tagName("")).getText
   }
 
 }

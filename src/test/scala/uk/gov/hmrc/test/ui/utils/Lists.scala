@@ -56,14 +56,4 @@ object Lists {
     "Not being paid minimum wage"
   )
 
-  val otherActivityTypeList: List[String] = List(
-    "Activity related to drugs",
-    "Smuggling",
-    "Benefit fraud (not including child benefit or tax credits)",
-    "Universal credit fraud",
-    "Human trafficking",
-    "Illegal immigration",
-    "Border crime"
-  )
-
 }

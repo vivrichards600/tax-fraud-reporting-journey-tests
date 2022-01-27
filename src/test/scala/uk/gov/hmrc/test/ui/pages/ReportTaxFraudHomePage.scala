@@ -18,6 +18,7 @@ package uk.gov.hmrc.test.ui.pages
 
 import org.openqa.selenium.By
 import uk.gov.hmrc.test.ui.conf.TestConfiguration
+import uk.gov.hmrc.test.ui.pages.ActivityType.activityType
 
 object ReportTaxFraudHomePage extends BasePage {
   val url: String        = TestConfiguration.url("tax-fraud-reporting-frontend")
@@ -31,7 +32,8 @@ object ReportTaxFraudHomePage extends BasePage {
 
   def startApplication: ActivityType.type = {
 //    submitPage() will use when id of button has changed
-    driver.findElement(By.id("start-application"))
+    driver.findElement(By.id("start-application")).click()
+    onPage(activityType)
     ActivityType
   }
 }
