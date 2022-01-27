@@ -26,7 +26,6 @@ object ActivityType extends BasePage {
   val activityType               = "What type of HMRC activity are you reporting? - Report tax fraud or evasion - GOV.UK"
   val random                     = new Random
   val reportableActivity: String = validActivityTypeList(random.nextInt(validActivityTypeList.length))
-  val otherActivity: String      = otherActivityTypeList(random.nextInt(otherActivityTypeList.length))
   val inputBox                   = "value"
 
   def reportingFraud: PersonOrBusiness.type = {
