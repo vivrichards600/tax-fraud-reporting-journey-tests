@@ -19,13 +19,13 @@ package uk.gov.hmrc.test.ui.specs
 import uk.gov.hmrc.test.ui.pages.ReportTaxFraudHomePage._
 import uk.gov.hmrc.test.ui.pages.Result.result
 import uk.gov.hmrc.test.ui.pages._
-import uk.gov.hmrc.test.ui.specs.tags.ZapTests
+import uk.gov.hmrc.test.ui.specs.tags.{Solo, ZapTests}
 
 class DoNotUseThisServiceSpec extends BaseSpec {
 
   Feature("Referring user when reporting activity not handled by this service") {
 
-    Scenario("Referring user when reporting Activity related to drugs", ZapTests) {
+    Scenario("Referring user when reporting Activity related to drugs", Solo) {
       Given("I am on the Using this service")
       ReportTaxFraudHomePage.loadPage
 
@@ -34,7 +34,7 @@ class DoNotUseThisServiceSpec extends BaseSpec {
         .reportingOther("Activity related to drugs")
 
       Then("I will be shown the do not use this service page")
-      result should be("")
+      DoNotUseThisService.result should be("")
     }
 
     Scenario("Referring user when reporting Smuggling") {

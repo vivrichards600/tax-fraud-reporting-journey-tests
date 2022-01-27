@@ -14,24 +14,8 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.test.ui.pages
+package uk.gov.hmrc.test.ui.specs.tags
 
-import org.openqa.selenium.By
-import uk.gov.hmrc.test.ui.conf.TestConfiguration
-import uk.gov.hmrc.test.ui.pages.ActivityType.activityType
+import org.scalatest.Tag
 
-object ReportTaxFraudHomePage extends BasePage {
-  val url: String        = TestConfiguration.url("tax-fraud-reporting-frontend")
-  val reportTaxFraudHome = "Using this service - Report tax fraud or evasion - GOV.UK"
-
-  def loadPage: this.type = {
-    driver.navigate().to(url)
-    onPage(reportTaxFraudHome)
-    this
-  }
-
-  def startApplication: ActivityType.type = {
-    submitPage()
-    ActivityType
-  }
-}
+object Solo extends Tag("Solo")

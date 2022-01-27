@@ -17,6 +17,7 @@
 package uk.gov.hmrc.test.ui.pages
 
 import org.openqa.selenium.By
+import uk.gov.hmrc.test.ui.pages.DoNotUseThisService.doNotUseThisService
 import uk.gov.hmrc.test.ui.utils.Lists._
 
 import scala.util.Random
@@ -36,7 +37,10 @@ object ActivityType extends BasePage {
   }
 
   def reportingOther(activity: String): DoNotUseThisService.type = {
+    onPage(activityType)
     driver.findElement(By.id(inputBox)).sendKeys(activity)
+    //double submit as the above field is an autocomplete input
+    submitPage()
     submitPage()
     DoNotUseThisService
   }
