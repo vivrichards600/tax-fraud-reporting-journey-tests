@@ -16,7 +16,7 @@
 
 package uk.gov.hmrc.test.ui.pages
 
-import org.openqa.selenium.By
+import org.openqa.selenium.{By, JavascriptExecutor}
 import uk.gov.hmrc.test.ui.pages.DoNotUseThisService.doNotUseThisService
 import uk.gov.hmrc.test.ui.utils.Lists._
 
@@ -32,15 +32,16 @@ object ActivityType extends BasePage {
   def reportingFraud: PersonOrBusiness.type = {
     onPage(activityType)
     driver.findElement(By.id(inputBox)).sendKeys(reportableActivity)
+    driver.findElement(By.id("value__option--0")).click()
     submitPage()
     PersonOrBusiness
   }
 
   def reportingOther(activity: String): DoNotUseThisService.type = {
     onPage(activityType)
+    driver.findElement(By.id(inputBox)).clear()
     driver.findElement(By.id(inputBox)).sendKeys(activity)
-    //double submit as the above field is an autocomplete input
-    submitPage()
+    driver.findElement(By.id("value__option--0")).click()
     submitPage()
     DoNotUseThisService
   }

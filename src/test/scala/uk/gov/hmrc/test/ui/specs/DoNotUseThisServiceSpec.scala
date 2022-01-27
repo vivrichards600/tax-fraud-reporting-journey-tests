@@ -16,96 +16,36 @@
 
 package uk.gov.hmrc.test.ui.specs
 
+import org.scalatest.prop.TableDrivenPropertyChecks
 import uk.gov.hmrc.test.ui.pages.ReportTaxFraudHomePage._
-import uk.gov.hmrc.test.ui.pages.Result.result
 import uk.gov.hmrc.test.ui.pages._
 import uk.gov.hmrc.test.ui.specs.tags.{Solo, ZapTests}
 
-class DoNotUseThisServiceSpec extends BaseSpec {
-
+class DoNotUseThisServiceSpec extends BaseSpec with TableDrivenPropertyChecks {
   Feature("Referring user when reporting activity not handled by this service") {
+    val reportedActivity =
+      Table(
+        "otherActivity",
+        "Activity related to drugs",
+        "Smuggling",
+        "Benefit fraud (not including child benefit or tax credits)",
+        "Universal credit fraud",
+        "Human trafficking",
+        "Border crime"
+      )
+    forAll(reportedActivity) { (otherActivity: String) =>
+      Scenario(s"Referring user when reporting $otherActivity", Solo) {
+        Given("I am on the Using this service")
+        ReportTaxFraudHomePage.loadPage
 
-    Scenario("Referring user when reporting Activity related to drugs", Solo) {
-      Given("I am on the Using this service")
-      ReportTaxFraudHomePage.loadPage
+        When(s"I report $otherActivity")
+        startApplication
+          .reportingOther(s"$otherActivity")
 
-      When("I report Activity related to drugs")
-      startApplication
-        .reportingOther("Activity related to drugs")
-
-      Then("I will be shown the do not use this service page")
-      DoNotUseThisService.result should be("")
-    }
-
-    Scenario("Referring user when reporting Smuggling") {
-      Given("I am on the Using this service")
-      ReportTaxFraudHomePage.loadPage
-
-      When("I report Smuggling")
-      startApplication
-        .reportingOther("Smuggling")
-
-      Then("I will be shown the do not use this service page")
-      result should be("")
-    }
-
-    Scenario("Referring user when reporting Benefit fraud (not including child benefit or tax credits)") {
-      Given("I am on the Using this service")
-      ReportTaxFraudHomePage.loadPage
-
-      When("I report Benefit fraud (not including child benefit or tax credits)")
-      startApplication
-        .reportingOther("Benefit fraud (not including child benefit or tax credits)")
-
-      Then("I will be shown the do not use this service page")
-      result should be("")
-    }
-    Scenario("Referring user when reporting Universal credit fraud") {
-      Given("I am on the Using this service")
-      ReportTaxFraudHomePage.loadPage
-
-      When("I report Universal credit fraud)")
-      startApplication
-        .reportingOther("Universal credit fraud")
-
-      Then("I will be shown the do not use this service page")
-      result should be("")
-    }
-
-    Scenario("Referring user when reporting Human trafficking") {
-      Given("I am on the Using this service")
-      ReportTaxFraudHomePage.loadPage
-
-      When("I report Human trafficking")
-      startApplication
-        .reportingOther("Human trafficking")
-
-      Then("I will be shown the do not use this service page")
-      result should be("")
-    }
-
-    Scenario("Referring user when reporting Illegal immigration") {
-      Given("I am on the Using this service")
-      ReportTaxFraudHomePage.loadPage
-
-      When("I report Illegal immigration")
-      startApplication
-        .reportingOther("Illegal immigration")
-
-      Then("I will be shown the do not use this service page")
-      result should be("")
-    }
-
-    Scenario("Referring user when reporting Border crime") {
-      Given("I am on the Using this service")
-      ReportTaxFraudHomePage.loadPage
-
-      When("I report Border crime")
-      startApplication
-        .reportingOther("Border crime")
-
-      Then("I will be shown the do not use this service page")
-      result should be("")
+        Then("I will be shown the do not use this service page")
+        DoNotUseThisService.result should be("You should not use this service to report this activity")
+//        DoNotUseThisService.result should be(s"$referrer")
+      }
     }
   }
 }

@@ -27,7 +27,7 @@ object DoNotUseThisService extends BasePage {
     onPage(doNotUseThisService)
 
     //request either id or p2 tag be put on to differentiate journeys
-    driver.findElement(By.tagName("")).getText
+    driver.findElement(By.tagName("h1")).getText
   }
 
 }
