@@ -16,6 +16,9 @@
 
 package uk.gov.hmrc.test.ui.specs
 
+import org.mongodb.scala.MongoClient
+
+import scala.concurrent.duration._
 import org.scalatest._
 import org.scalatest.concurrent.Eventually
 import org.scalatest.featurespec.AnyFeatureSpec
@@ -24,19 +27,44 @@ import org.scalatestplus.selenium.WebBrowser
 import uk.gov.hmrc.test.ui.driver.BrowserDriver
 import uk.gov.hmrc.webdriver.SingletonDriver
 
+import scala.concurrent.Await
+import scala.language.postfixOps
 import scala.util.Try
 
 trait BaseSpec
     extends AnyFeatureSpec
     with GivenWhenThen
     with BeforeAndAfterAll
+    with BeforeAndAfterEach
     with Matchers
     with WebBrowser
     with BrowserDriver
     with Eventually {
 
-  override def afterAll() {
+  override def afterAll(): Unit =
     Try(SingletonDriver.closeInstance)
+
+  override def beforeEach(): Unit =
+    dropMongo()
+
+  def dropMongo(): Unit = {
+
+    val mongoClient: MongoClient = MongoClient()
+
+    try {
+      println("....... Dropping user-answers.......")
+      dropCollection("tax-fraud-reporting-frontend", "user-answers")
+    } finally mongoClient.close()
+
+    def dropCollection(dbName: String, collectionName: String): Unit =
+      Await.result(
+        mongoClient
+          .getDatabase(dbName)
+          .getCollection(collectionName)
+          .drop()
+          .head(),
+        10 seconds
+      )
   }
 
   override def withFixture(test: NoArgTest): Outcome = {

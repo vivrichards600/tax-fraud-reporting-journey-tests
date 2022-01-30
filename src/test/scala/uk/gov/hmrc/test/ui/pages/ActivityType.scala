@@ -16,6 +16,7 @@
 
 package uk.gov.hmrc.test.ui.pages
 
+import org.openqa.selenium.support.ui.{ExpectedConditions, FluentWait}
 import org.openqa.selenium.{By, JavascriptExecutor}
 import uk.gov.hmrc.test.ui.pages.DoNotUseThisService.doNotUseThisService
 import uk.gov.hmrc.test.ui.utils.Lists._
