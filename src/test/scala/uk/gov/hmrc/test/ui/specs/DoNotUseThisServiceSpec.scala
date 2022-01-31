@@ -25,15 +25,15 @@ class DoNotUseThisServiceSpec extends BaseSpec with TableDrivenPropertyChecks {
   Feature("Referring user when reporting activity not handled by this service") {
     val reportedActivity =
       Table(
-        "otherActivity",
-        "Activity related to drugs",
-        "Smuggling",
-        "Benefit fraud (not including child benefit or tax credits)",
-        "Universal credit fraud",
-        "Human trafficking",
-        "Border crime"
+        ("otherActivity", "referrerText"),
+        ("Activity related to drugs", "activity-related-to-drugs"),
+        ("Smuggling", "smuggling"),
+        ("Benefit fraud (not including child benefit or tax credits)", "benefit-fraud-and-universal-credit"),
+        ("Universal credit fraud", "benefit-fraud-and-universal-credit"),
+        ("Human trafficking", "human-trafficking"),
+        ("Border crime", "immigration-border-crime")
       )
-    forAll(reportedActivity) { (otherActivity: String) =>
+    forAll(reportedActivity) { (otherActivity: String, referrerText: String) =>
       Scenario(s"Referring user when reporting $otherActivity") {
         Given("I am on the Using this service")
         ReportTaxFraudHomePage.loadPage
@@ -43,8 +43,7 @@ class DoNotUseThisServiceSpec extends BaseSpec with TableDrivenPropertyChecks {
           .reportingOther(s"$otherActivity")
 
         Then("I will be shown the do not use this service page")
-        DoNotUseThisService.result should be("You should not use this service to report this activity")
-//        DoNotUseThisService.result should be(s"$referrerText")
+        DoNotUseThisService.result should be(s"$referrerText")
       }
     }
   }
