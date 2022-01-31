@@ -113,7 +113,16 @@ See the `drivers/` directory for some helpful scripts to do the installation wor
 
  ```
  sbt scalafmtAll
+ 
  ```
+
+ To apply formatting to files in the project folder execute:
+
+ ```
+ sbt scalafmtSbt
+ 
+ ```
+
 
  To check files have been formatted as expected execute:
 

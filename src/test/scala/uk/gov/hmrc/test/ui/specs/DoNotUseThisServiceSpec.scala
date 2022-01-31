@@ -34,7 +34,7 @@ class DoNotUseThisServiceSpec extends BaseSpec with TableDrivenPropertyChecks {
         "Border crime"
       )
     forAll(reportedActivity) { (otherActivity: String) =>
-      Scenario(s"Referring user when reporting $otherActivity", Solo) {
+      Scenario(s"Referring user when reporting $otherActivity") {
         Given("I am on the Using this service")
         ReportTaxFraudHomePage.loadPage
 
@@ -44,7 +44,7 @@ class DoNotUseThisServiceSpec extends BaseSpec with TableDrivenPropertyChecks {
 
         Then("I will be shown the do not use this service page")
         DoNotUseThisService.result should be("You should not use this service to report this activity")
-//        DoNotUseThisService.result should be(s"$referrer")
+//        DoNotUseThisService.result should be(s"$referrerText")
       }
     }
   }
