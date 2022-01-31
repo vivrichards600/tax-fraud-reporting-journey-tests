@@ -18,6 +18,19 @@ package uk.gov.hmrc.test.ui.pages
 
 object IndividualAgeFormat extends BasePage {
 
-  val individualAgeFormat = "  Select a format to enter this individual's age - Report tax fraud or evasion - GOV.UK"
+  val individualAgeFormat = "Select a format to enter this individual's age - Report tax fraud or evasion - GOV.UK"
 
+  def selectDOB: IndividualAgeDOB.type = {
+    onPage(individualAgeFormat)
+    findByID("value_0").click()
+    submitPage()
+    IndividualAgeDOB
+  }
+
+  def selectApprox: IndividualAgeApprox.type = {
+    onPage(individualAgeFormat)
+    findByID("value_1").click()
+    submitPage()
+    IndividualAgeApprox
+  }
 }

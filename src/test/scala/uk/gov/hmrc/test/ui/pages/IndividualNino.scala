@@ -16,8 +16,6 @@
 
 package uk.gov.hmrc.test.ui.pages
 
-import org.openqa.selenium.By
-
 object IndividualNino extends BasePage {
 
   val individualNino = "  What is the individual's National Insurance Number? - Report tax fraud or evasion - GOV.UK"
@@ -25,7 +23,7 @@ object IndividualNino extends BasePage {
   def individualNino: IndividualName.type = {
     onPage(individualNino)
     //TODO request ID be changed to more meaningful
-    driver.findElement(By.id("value")).click()
+    findByID("value").click()
     submitPage()
     IndividualConnection
   }

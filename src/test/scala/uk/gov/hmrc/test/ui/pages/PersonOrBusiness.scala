@@ -16,8 +16,6 @@
 
 package uk.gov.hmrc.test.ui.pages
 
-import org.openqa.selenium.By
-
 object PersonOrBusiness extends BasePage {
 
   val personOrBusiness: String = "Are you reporting an individual or a business? - Report tax fraud or evasion - GOV.UK"
@@ -25,17 +23,17 @@ object PersonOrBusiness extends BasePage {
   def reportAnIndividual: IndividualInformationCheck.type = {
     onPage(personOrBusiness)
     //TODO request ID be changed to more meaningful
-    driver.findElement(By.id("value_0")).click()
+    findByID("value_0").click()
     submitPage()
     IndividualInformationCheck
   }
 
-//  def reportABusiness: BusinessInformationCheck.type = {
-//    onPage(personOrBusiness)
-//    //TODO request ID be changed to more meaningful
-//    driver.findElement(By.id("value_1")).click()
-//    submitPage()
-//    BusinessInformationCheck
-//  }
+  //  def reportABusiness: BusinessInformationCheck.type = {
+  //    onPage(personOrBusiness)
+  //    //TODO request ID be changed to more meaningful
+  //    findByID("value_1").click()
+  //    submitPage()
+  //    BusinessInformationCheck
+  //  }
 
 }

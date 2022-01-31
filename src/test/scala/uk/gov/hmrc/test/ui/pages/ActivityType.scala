@@ -16,33 +16,27 @@
 
 package uk.gov.hmrc.test.ui.pages
 
-import org.openqa.selenium.support.ui.{ExpectedConditions, FluentWait}
-import org.openqa.selenium.{By, JavascriptExecutor}
-import uk.gov.hmrc.test.ui.pages.DoNotUseThisService.doNotUseThisService
 import uk.gov.hmrc.test.ui.utils.Lists._
-
-import scala.util.Random
 
 object ActivityType extends BasePage {
 
   val activityType               = "What type of HMRC activity are you reporting? - Report tax fraud or evasion - GOV.UK"
-  val random                     = new Random
   val reportableActivity: String = validActivityTypeList(random.nextInt(validActivityTypeList.length))
   val inputBox                   = "value"
 
   def reportingFraud: PersonOrBusiness.type = {
     onPage(activityType)
-    driver.findElement(By.id(inputBox)).sendKeys(reportableActivity)
-    driver.findElement(By.id("value__option--0")).click()
+    findByID(inputBox).sendKeys(reportableActivity)
+    findByID("value__option--0").click()
     submitPage()
     PersonOrBusiness
   }
 
   def reportingOther(activity: String): DoNotUseThisService.type = {
     onPage(activityType)
-    driver.findElement(By.id(inputBox)).clear()
-    driver.findElement(By.id(inputBox)).sendKeys(activity)
-    driver.findElement(By.id("value__option--0")).click()
+    findByID(inputBox).clear()
+    findByID(inputBox).sendKeys(activity)
+    findByID("value__option--0").click()
     submitPage()
     DoNotUseThisService
   }

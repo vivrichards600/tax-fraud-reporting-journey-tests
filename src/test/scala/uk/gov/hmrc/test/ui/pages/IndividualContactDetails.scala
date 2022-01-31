@@ -16,8 +16,6 @@
 
 package uk.gov.hmrc.test.ui.pages
 
-import org.openqa.selenium.By
-
 object IndividualContactDetails extends BasePage {
 
   val individualContactDetails = "   What are the individual's contact details? - Report tax fraud or evasion - GOV.UK"
@@ -25,7 +23,7 @@ object IndividualContactDetails extends BasePage {
   def individualContactDetails: IndividualName.type = {
     onPage(individualContactDetails)
     //TODO request ID be changed to more meaningful
-    driver.findElement(By.id("landlineNumber")).sendKeys()
+    findByID("landlineNumber").sendKeys()
     submitPage()
     IndividualConnection
 

@@ -16,16 +16,23 @@
 
 package uk.gov.hmrc.test.ui.pages
 
-import org.openqa.selenium.By
-
 object IndividualInformationCheck extends BasePage {
 
   val individualInformationCheck = " What do you know about the individual? - Report tax fraud or evasion - GOV.UK"
 
-  def individualNameSelection: IndividualName.type = {
+  def selectAllFields: IndividualName.type = {
     onPage(individualInformationCheck)
     //TODO request ID be changed to more meaningful
-    driver.findElement(By.id("value_0")).click()
+    //Name
+    findByID("value_0").click()
+    //Age
+    findByID("value_1").click()
+    //Address
+    findByID("value_2").click()
+    //Contact Details
+    findByID("value_3").click()
+    //National Insurance Number
+    findByID("value_4").click()
     submitPage()
     IndividualName
   }
@@ -33,32 +40,8 @@ object IndividualInformationCheck extends BasePage {
   def individualAgeSelection: IndividualAgeFormat.type = {
     onPage(individualInformationCheck)
     //TODO request ID be changed to more meaningful
-    driver.findElement(By.id("value_1")).click()
+    findByID("value_1").click()
     submitPage()
     IndividualAgeFormat
   }
-  def individualAddressSelection: IndividualAddress.type = {
-    onPage(individualInformationCheck)
-    //TODO request ID be changed to more meaningful
-    driver.findElement(By.id("value_2")).click()
-    submitPage()
-    IndividualAddress
-  }
-  def individualContactDetailsSelection: IndividualContactDetails.type = {
-    onPage(individualInformationCheck)
-    //TODO request ID be changed to more meaningful
-    driver.findElement(By.id("value_3")).click()
-    submitPage()
-    IndividualContactDetails
-  }
-
-    def individualNinoSelection: IndividualNino.type = {
-      onPage(individualInformationCheck)
-      //TODO request ID be changed to more meaningful
-      driver.findElement(By.id("value_4")).click()
-      submitPage()
-      IndividualNino
-    }
-
-
 }

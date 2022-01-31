@@ -20,11 +20,17 @@ import org.openqa.selenium.By
 import org.scalatest.matchers.should.Matchers
 import uk.gov.hmrc.test.ui.driver.BrowserDriver
 
+import scala.util.Random
+
 trait BasePage extends BrowserDriver with Matchers {
   val continueButton = "continue-button"
 
+  val random = new Random
+
+  def findByID(id: String) = driver.findElement(By.id(id))
+
   def submitPage(): Unit =
-    driver.findElement(By.id(continueButton)).click()
+    findByID(continueButton).click()
 
   def onPage(pageTitle: String): Unit =
     if (driver.getTitle != pageTitle)

@@ -56,4 +56,11 @@ object Lists {
     "Not being paid minimum wage"
   )
 
+  val nameFields: List[String] = List(
+    "firstName",
+    "middleName",
+    "lastName",
+    "aliases",
+  )
+
 }
