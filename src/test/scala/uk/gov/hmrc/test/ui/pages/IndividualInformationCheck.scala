@@ -16,8 +16,49 @@
 
 package uk.gov.hmrc.test.ui.pages
 
+import org.openqa.selenium.By
+
 object IndividualInformationCheck extends BasePage {
 
   val individualInformationCheck = " What do you know about the individual? - Report tax fraud or evasion - GOV.UK"
+
+  def individualNameSelection: IndividualName.type = {
+    onPage(individualInformationCheck)
+    //TODO request ID be changed to more meaningful
+    driver.findElement(By.id("value_0")).click()
+    submitPage()
+    IndividualName
+  }
+
+  def individualAgeSelection: IndividualAgeFormat.type = {
+    onPage(individualInformationCheck)
+    //TODO request ID be changed to more meaningful
+    driver.findElement(By.id("value_1")).click()
+    submitPage()
+    IndividualAgeFormat
+  }
+  def individualAddressSelection: IndividualAddress.type = {
+    onPage(individualInformationCheck)
+    //TODO request ID be changed to more meaningful
+    driver.findElement(By.id("value_2")).click()
+    submitPage()
+    IndividualAddress
+  }
+  def individualContactDetailsSelection: IndividualContactDetails.type = {
+    onPage(individualInformationCheck)
+    //TODO request ID be changed to more meaningful
+    driver.findElement(By.id("value_3")).click()
+    submitPage()
+    IndividualContactDetails
+  }
+
+    def individualNinoSelection: IndividualNino.type = {
+      onPage(individualInformationCheck)
+      //TODO request ID be changed to more meaningful
+      driver.findElement(By.id("value_4")).click()
+      submitPage()
+      IndividualNino
+    }
+
 
 }
