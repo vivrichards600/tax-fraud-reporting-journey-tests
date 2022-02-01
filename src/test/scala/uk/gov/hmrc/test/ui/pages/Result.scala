@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 HM Revenue & Customs
+ * Copyright 2022 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,18 +16,16 @@
 
 package uk.gov.hmrc.test.ui.pages
 
-import org.openqa.selenium.By
+object Result extends BasePage {
 
-object Turnover extends BasePage {
-
-  val turnover      = "Enter your turnover"
-  val turnoverInput = "turnover"
-
-  def provideTurnoverAmount(amount: String): CostOfGoods.type = {
-    onPage(turnover)
-    driver.findElement(By.id(turnoverInput)).sendKeys(amount)
-    submitPage()
-    CostOfGoods
-  }
+//  val checkYourVatResult   = "Your VAT calculation"
+//  val resultOutcome        = "resultOutcome"
+//  val useSetVATFlatRate    = "Use the 16.5% VAT flat rate"
+//  val useUniqueVATFlatRate = "Use the VAT flat rate for your business type"
+//
+//  def result: String = {
+//    onPage(checkYourVatResult)
+//    driver.findElement(By.id(resultOutcome)).getText
+//  }
 
 }

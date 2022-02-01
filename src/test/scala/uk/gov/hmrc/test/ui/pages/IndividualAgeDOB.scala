@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 HM Revenue & Customs
+ * Copyright 2022 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,22 +16,16 @@
 
 package uk.gov.hmrc.test.ui.pages
 
-import org.openqa.selenium.By
+object IndividualAgeDOB extends BasePage {
 
-object CostOfGoods extends BasePage {
+  val ageDOB: String = " What is this individual's date of birth? - Report tax fraud or evasion - GOV.UK"
 
-  val costOfGoods      = "Enter your cost of goods"
-  val costOfGoodsInput = "costOfGoods"
-
-  def provideCostOfGoodsAmount(amount: String): this.type = {
-    onPage(costOfGoods)
-    driver.findElement(By.id(costOfGoodsInput)).sendKeys(amount)
-    this
-  }
-
-  def submitVATInformation: CheckYourVATResult.type = {
-    submitPage()
-    CheckYourVATResult
-  }
+//  def enterDOB = {
+//    onPage(ageDOB)
+//    findByID("value.day").sendKeys("25")
+//    findByID("value.month").sendKeys("04")
+//    findByID("value.year").sendKeys("1994")
+//    submitPage()
+//  }
 
 }

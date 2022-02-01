@@ -17,26 +17,20 @@
 package uk.gov.hmrc.test.ui.pages
 
 import org.openqa.selenium.By
-import org.scalatest.matchers.should.Matchers
-import uk.gov.hmrc.test.ui.driver.BrowserDriver
+import uk.gov.hmrc.test.ui.pages.IndividualNino.submitPage
+import uk.gov.hmrc.test.ui.utils.Lists.nameFields
 
-import scala.util.Random
+object IndividualName extends BasePage {
 
-trait BasePage extends BrowserDriver with Matchers {
-  val continueButton = "continue-button"
+  val individualName = "What is the individual's name? - Report tax fraud or evasion - GOV.UK"
 
-  val random = new Random
+  val randomString: String    = random.nextString(7)
+  val randomNameField: String = nameFields(random.nextInt(nameFields.length))
 
-  def findByID(id: String) = driver.findElement(By.id(id))
-
-  def submitPage(): Unit =
-    findByID(continueButton).click()
-
-  def onPage(pageTitle: String): Unit =
-    if (driver.getTitle != pageTitle)
-      throw PageNotFoundException(
-        s"Expected '$pageTitle' page, but found '${driver.getTitle}' page."
-      )
+  def enterNameDetails: IndividualAgeFormat.type = {
+    onPage(individualName)
+    findByID(randomNameField).sendKeys(randomString)
+    submitPage()
+    IndividualAgeFormat
+  }
 }
-
-case class PageNotFoundException(s: String) extends Exception(s)
