@@ -1,5 +1,5 @@
 #!/bin/bash -e
-DEFAULT_BROWSER=chrome
+DEFAULT_BROWSER=remote-chrome
 BROWSER_TYPE=$1
 ENV=$2
 
