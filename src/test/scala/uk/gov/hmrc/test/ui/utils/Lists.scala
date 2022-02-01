@@ -60,7 +60,7 @@ object Lists {
     "firstName",
     "middleName",
     "lastName",
-    "aliases",
+    "aliases"
   )
 
 }

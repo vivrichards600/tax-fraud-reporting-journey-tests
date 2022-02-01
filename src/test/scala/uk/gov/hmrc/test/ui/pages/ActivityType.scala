@@ -24,7 +24,7 @@ object ActivityType extends BasePage {
   val reportableActivity: String = validActivityTypeList(random.nextInt(validActivityTypeList.length))
   val inputBox                   = "value"
 
-  def reportingFraud: PersonOrBusiness.type = {
+  def reportingValidActivity: PersonOrBusiness.type = {
     onPage(activityType)
     findByID(inputBox).sendKeys(reportableActivity)
     findByID("value__option--0").click()

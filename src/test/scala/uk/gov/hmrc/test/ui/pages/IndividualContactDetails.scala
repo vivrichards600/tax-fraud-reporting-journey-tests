@@ -20,15 +20,12 @@ object IndividualContactDetails extends BasePage {
 
   val individualContactDetails = "   What are the individual's contact details? - Report tax fraud or evasion - GOV.UK"
 
-  def individualContactDetails: IndividualName.type = {
-    onPage(individualContactDetails)
-    //TODO request ID be changed to more meaningful
-    findByID("landlineNumber").sendKeys()
-    submitPage()
-    IndividualConnection
-
-  }
+//  def individualContactDetails:  = {
+//    onPage(individualContactDetails)
+//    //TODO request ID be changed to more meaningful
+//    findByID("landlineNumber").sendKeys()
+//    submitPage()
+//
+//  }
 
 }
-
-

@@ -22,11 +22,10 @@ import uk.gov.hmrc.test.ui.utils.Lists.nameFields
 
 object IndividualName extends BasePage {
 
-  val individualName = " What is the individual's name? - Report tax fraud or evasion - GOV.UK"
+  val individualName = "What is the individual's name? - Report tax fraud or evasion - GOV.UK"
 
-  val randomString: String = random.nextString(7)
+  val randomString: String    = random.nextString(7)
   val randomNameField: String = nameFields(random.nextInt(nameFields.length))
-
 
   def enterNameDetails: IndividualAgeFormat.type = {
     onPage(individualName)

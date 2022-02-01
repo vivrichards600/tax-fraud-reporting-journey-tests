@@ -20,12 +20,12 @@ object IndividualNino extends BasePage {
 
   val individualNino = "  What is the individual's National Insurance Number? - Report tax fraud or evasion - GOV.UK"
 
-  def individualNino: IndividualName.type = {
-    onPage(individualNino)
-    //TODO request ID be changed to more meaningful
-    findByID("value").click()
-    submitPage()
-    IndividualConnection
-  }
+//  def individualNino:  = {
+//    onPage(individualNino)
+//    //TODO request ID be changed to more meaningful
+//    findByID("value").click()
+//    submitPage()
+//
+//  }
 
 }

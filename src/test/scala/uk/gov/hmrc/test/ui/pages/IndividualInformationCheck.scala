@@ -18,7 +18,7 @@ package uk.gov.hmrc.test.ui.pages
 
 object IndividualInformationCheck extends BasePage {
 
-  val individualInformationCheck = " What do you know about the individual? - Report tax fraud or evasion - GOV.UK"
+  val individualInformationCheck = "What do you know about the individual? - Report tax fraud or evasion - GOV.UK"
 
   def selectAllFields: IndividualName.type = {
     onPage(individualInformationCheck)
