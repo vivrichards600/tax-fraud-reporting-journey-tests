@@ -18,12 +18,12 @@ package uk.gov.hmrc.test.ui.specs
 
 import uk.gov.hmrc.test.ui.pages.PersonOrBusiness.reportAnIndividual
 import uk.gov.hmrc.test.ui.pages.ReportTaxFraudHomePage
+import uk.gov.hmrc.test.ui.specs.tags.ZapTests
 
 class ReportingValidActivitySpec extends BaseSpec {
 
   Feature("Taking information when a user is reporting a valid activity") {
-
-    Scenario("User is reporting all types of information for an individual with a business") {
+    Scenario("User is reporting all types of information for an individual with a business", ZapTests) {
       Given("I start reporting a valid activity")
       ReportTaxFraudHomePage.loadPage.startApplication.reportingValidActivity
 
