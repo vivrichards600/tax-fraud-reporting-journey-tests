@@ -16,6 +16,7 @@
 
 package uk.gov.hmrc.test.ui.specs
 
+import uk.gov.hmrc.test.ui.pages.IndividualAgeApprox.enterApproxAge
 import uk.gov.hmrc.test.ui.pages.PersonOrBusiness.reportAnIndividual
 import uk.gov.hmrc.test.ui.pages.ReportTaxFraudHomePage
 
@@ -38,11 +39,15 @@ class ReportingValidActivitySpec extends BaseSpec {
       Then("I will receive confirmation my report has been submitted")
     }
 
-//    Scenario("User anonymously reporting multiple individuals, with an estimated age and other connection") {
-//      Given("I start reporting a valid activity")
-//      When("I provide age,(approx)")
-//      Then("")
-//    }
+    Scenario("User anonymously reporting multiple individuals, with an estimated age and other connection") {
+      Given("I start reporting a valid activity for an individual")
+      ReportTaxFraudHomePage.loadPage.startApplication.reportingValidActivity.reportAnIndividual.individualAgeSelection.selectApprox
+
+      When("I provide age,(approx)")
+      enterApproxAge
+
+      Then("")
+    }
 
 //    Scenario("User is reporting a business with all types of information") {
 //      Given("")
