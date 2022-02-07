@@ -41,13 +41,7 @@ trait BaseSpec
     with BrowserDriver
     with Eventually {
 
-  override def afterAll() {
-    Runtime.getRuntime addShutdownHook new Thread {
-      override def run {
-        Try(SingletonDriver.closeInstance)
-      }
-    }
-  }
+  sys.addShutdownHook(SingletonDriver.closeInstance)
 
   override def beforeEach(): Unit =
     dropMongo()
