@@ -21,9 +21,11 @@ import org.openqa.selenium.WebDriver
 import uk.gov.hmrc.webdriver.SingletonDriver
 
 trait BrowserDriver extends LazyLogging {
-  logger.info(
-    s"Instantiating Browser: ${sys.props.getOrElse("browser", "'browser' System property not set. This is required")}"
-  )
+
+  if (sys.props.get("browser").isEmpty)
+    logger.info(
+      s"Instantiating Browser: ${sys.props.getOrElse("browser", "'browser' System property not set. This is required")}"
+    )
 
   implicit lazy val driver: WebDriver = SingletonDriver.getInstance()
 }

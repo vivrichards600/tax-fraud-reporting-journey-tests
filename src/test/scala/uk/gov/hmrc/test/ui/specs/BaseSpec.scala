@@ -29,7 +29,6 @@ import uk.gov.hmrc.webdriver.SingletonDriver
 
 import scala.concurrent.Await
 import scala.language.postfixOps
-import scala.util.Try
 
 trait BaseSpec
     extends AnyFeatureSpec
