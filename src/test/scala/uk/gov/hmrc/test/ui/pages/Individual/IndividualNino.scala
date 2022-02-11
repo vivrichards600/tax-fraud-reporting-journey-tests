@@ -14,28 +14,25 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.test.ui.pages
+package uk.gov.hmrc.test.ui.pages.Individual
 
-import uk.gov.hmrc.test.ui.pages.Individual.IndividualInformationCheck
+import uk.gov.hmrc.domain.{Generator, Nino}
+import uk.gov.hmrc.test.ui.pages.BasePage
 
-object PersonOrBusiness extends BasePage {
+object IndividualNino extends BasePage {
 
-  val personOrBusiness: String = "Are you reporting an individual or a business? - Report tax fraud or evasion - GOV.UK"
+  val individualNino = "What is the individual's National Insurance Number? - Report tax fraud or evasion - GOV.UK"
 
-  def reportAnIndividual: IndividualInformationCheck.type = {
-    onPage(personOrBusiness)
+  private val ninoGenerator = new Generator(random)
+
+  def generateNino(): Nino = ninoGenerator.nextNino
+
+  def enterIndividualNino: SelectConnectionIndividual.type = {
+    onPage(individualNino)
     //TODO request ID be changed to more meaningful
-    findByID("value_0").click()
+    findByID("value").sendKeys(generateNino().toString())
     submitPage()
-    IndividualInformationCheck
+    SelectConnectionIndividual
   }
-
-  //  def reportABusiness: BusinessInformationCheck.type = {
-  //    onPage(personOrBusiness)
-  //    //TODO request ID be changed to more meaningful
-  //    findByID("value_1").click()
-  //    submitPage()
-  //    BusinessInformationCheck
-  //  }
 
 }

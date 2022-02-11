@@ -14,18 +14,22 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.test.ui.pages
+package uk.gov.hmrc.test.ui.pages.Individual
 
-object IndividualAgeDOB extends BasePage {
+import uk.gov.hmrc.test.ui.pages.BasePage
+import uk.gov.hmrc.test.ui.utils.Lists.nameFields
 
-  val ageDOB: String = " What is this individual's date of birth? - Report tax fraud or evasion - GOV.UK"
+object IndividualName extends BasePage {
 
-//  def enterDOB = {
-//    onPage(ageDOB)
-//    findByID("value.day").sendKeys("25")
-//    findByID("value.month").sendKeys("04")
-//    findByID("value.year").sendKeys("1994")
-//    submitPage()
-//  }
+  val individualName = "What is the individual's name? - Report tax fraud or evasion - GOV.UK"
 
+  val randomString: String    = random.nextString(7)
+  val randomNameField: String = nameFields(random.nextInt(nameFields.length))
+
+  def enterNameDetails: IndividualAgeFormat.type = {
+    onPage(individualName)
+    findByID(randomNameField).sendKeys(randomString)
+    submitPage()
+    IndividualAgeFormat
+  }
 }

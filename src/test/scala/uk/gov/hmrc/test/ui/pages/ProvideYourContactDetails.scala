@@ -16,8 +16,14 @@
 
 package uk.gov.hmrc.test.ui.pages
 
-object IndividualAddress extends BasePage {
+object ProvideYourContactDetails extends BasePage {
 
-  val individualAddress = "  "
+  val howManyPeopleKnow = "Do you wish to provide your contact details? - Report tax fraud or evasion - GOV.UK"
+
+  def selectYesProvideContactDetails = {
+    onPage(howManyPeopleKnow)
+    findByID("value_0").click()
+    submitPage()
+  }
 
 }

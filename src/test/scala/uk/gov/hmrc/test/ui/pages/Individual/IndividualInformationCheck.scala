@@ -14,7 +14,9 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.test.ui.pages
+package uk.gov.hmrc.test.ui.pages.Individual
+
+import uk.gov.hmrc.test.ui.pages.BasePage
 
 object IndividualInformationCheck extends BasePage {
 

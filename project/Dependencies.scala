@@ -9,7 +9,8 @@ object Dependencies {
     "com.vladsch.flexmark" % "flexmark-all"       % "0.35.10" % Test,
     "org.pegdown"          % "pegdown"            % "1.2.1"   % Test,
     "com.typesafe"         % "config"             % "1.3.2"   % Test,
-    "org.mongodb.scala"   %% "mongo-scala-driver" % "4.4.0"
+    "org.mongodb.scala"   %% "mongo-scala-driver" % "4.4.0",
+    "uk.gov.hmrc"         %% "domain"             % "7.0.0-play-28"
   )
 
 }

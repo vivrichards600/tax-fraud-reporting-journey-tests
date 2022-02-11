@@ -16,7 +16,9 @@
 
 package uk.gov.hmrc.test.ui.specs
 
-import uk.gov.hmrc.test.ui.pages.IndividualAgeApprox.enterApproxAge
+import uk.gov.hmrc.test.ui.pages.ActivityApproximateValue.enterApproximateValue
+import uk.gov.hmrc.test.ui.pages.Individual.DoesPersonOwnBusiness.enterYesIndividualHasBusiness
+import uk.gov.hmrc.test.ui.pages.Individual.IndividualAgeApprox.enterApproxAge
 import uk.gov.hmrc.test.ui.pages.PersonOrBusiness.reportAnIndividual
 import uk.gov.hmrc.test.ui.pages.ReportTaxFraudHomePage
 import uk.gov.hmrc.test.ui.specs.tags.ZapTests
@@ -29,12 +31,13 @@ class ReportingValidActivitySpec extends BaseSpec {
       ReportTaxFraudHomePage.loadPage.startApplication.reportingValidActivity
 
       When("I provide name, age(DOB), address, contact details and Nino of an individual")
-      reportAnIndividual.selectAllFields.enterNameDetails.selectDOB
-//        .enterDOB
+      reportAnIndividual.selectAllFields.enterNameDetails.selectDOB.enterDOB.enterAddress.confirmAddress.enterIndividualContactDetails.enterIndividualNino.selectAConnection
 
       And("The Individual has a business I provide all types of information for")
+      enterYesIndividualHasBusiness.selectAllFields.enterBusinessName.enterBusinessType.enterAddress.confirmAddress.enterBusinessContactDetails.enterBusinessReferenceNumbers.selectABusinessConnectionIndividual.enterNoAdditionalPeopleInvolved
 
       And("I provide all activity and personal details and submit")
+      enterApproximateValue.selectDurationOfActivity.enterActivityDescription.selectHowManyPeopleKnow.selectYesProvideContactDetails
 
       Then("I will receive confirmation my report has been submitted")
     }

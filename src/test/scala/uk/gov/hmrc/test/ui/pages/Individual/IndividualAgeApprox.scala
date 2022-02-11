@@ -14,18 +14,18 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.test.ui.pages
+package uk.gov.hmrc.test.ui.pages.Individual
 
-object IndividualNino extends BasePage {
+import uk.gov.hmrc.test.ui.pages.BasePage
 
-  val individualNino = "  What is the individual's National Insurance Number? - Report tax fraud or evasion - GOV.UK"
+object IndividualAgeApprox extends BasePage {
 
-//  def individualNino:  = {
-//    onPage(individualNino)
-//    //TODO request ID be changed to more meaningful
-//    findByID("value").click()
-//    submitPage()
-//
-//  }
+  val approxAge: String = "What is the individual's approximate age? - Report tax fraud or evasion - GOV.UK"
 
+  def enterApproxAge: IndividualConnection.type = {
+    onPage(approxAge)
+    findByID("value").sendKeys(random.nextInt(120).toString)
+    submitPage()
+    IndividualConnection
+  }
 }

@@ -14,23 +14,16 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.test.ui.pages
+package uk.gov.hmrc.test.ui.pages.Individual
 
-object IndividualAgeFormat extends BasePage {
+import uk.gov.hmrc.test.ui.pages.BasePage
 
-  val individualAgeFormat = "Select a format to enter this individual's age - Report tax fraud or evasion - GOV.UK"
+object IndividualConnection extends BasePage {
 
-  def selectDOB: IndividualAgeDOB.type = {
-    onPage(individualAgeFormat)
-    findByID("value_0").click()
-    submitPage()
-    IndividualAgeDOB
-  }
+  val individualConnection: String = "How do you know the individual? - Report tax fraud or evasion - GOV.UK"
 
-  def selectApprox: IndividualAgeApprox.type = {
-    onPage(individualAgeFormat)
-    findByID("value_1").click()
-    submitPage()
-    IndividualAgeApprox
-  }
+  //  def reportingOther = {
+  //    onPage(individualConnection)
+  //    findByID().click()
+  //    submitPage()
 }

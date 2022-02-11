@@ -14,18 +14,19 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.test.ui.pages
+package uk.gov.hmrc.test.ui.pages.Business
 
-object IndividualContactDetails extends BasePage {
+import uk.gov.hmrc.test.ui.pages.{AddAnotherPerson, BasePage}
 
-  val individualContactDetails = "   What are the individual's contact details? - Report tax fraud or evasion - GOV.UK"
+object SelectConnectionBusiness extends BasePage {
 
-//  def individualContactDetails:  = {
-//    onPage(individualContactDetails)
-//    //TODO request ID be changed to more meaningful
-//    findByID("landlineNumber").sendKeys()
-//    submitPage()
-//
-//  }
+  val selectConnectionBusiness = "How do you know the business? - Report tax fraud or evasion - GOV.UK"
+
+  def selectABusinessConnectionIndividual: AddAnotherPerson.type = {
+    onPage(selectConnectionBusiness)
+    findByID("value_0").click()
+    submitPage()
+    AddAnotherPerson
+  }
 
 }

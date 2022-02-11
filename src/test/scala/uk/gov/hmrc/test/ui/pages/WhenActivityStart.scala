@@ -16,26 +16,15 @@
 
 package uk.gov.hmrc.test.ui.pages
 
-import uk.gov.hmrc.test.ui.pages.Individual.IndividualInformationCheck
+object WhenActivityStart extends BasePage {
 
-object PersonOrBusiness extends BasePage {
+  val whenActivityStart = "What is the duration of the reported activity? - Report tax fraud or evasion - GOV.UK"
 
-  val personOrBusiness: String = "Are you reporting an individual or a business? - Report tax fraud or evasion - GOV.UK"
-
-  def reportAnIndividual: IndividualInformationCheck.type = {
-    onPage(personOrBusiness)
-    //TODO request ID be changed to more meaningful
+  def selectDurationOfActivity: DescriptionActivity.type = {
+    onPage(whenActivityStart)
     findByID("value_0").click()
     submitPage()
-    IndividualInformationCheck
+    DescriptionActivity
   }
-
-  //  def reportABusiness: BusinessInformationCheck.type = {
-  //    onPage(personOrBusiness)
-  //    //TODO request ID be changed to more meaningful
-  //    findByID("value_1").click()
-  //    submitPage()
-  //    BusinessInformationCheck
-  //  }
 
 }
