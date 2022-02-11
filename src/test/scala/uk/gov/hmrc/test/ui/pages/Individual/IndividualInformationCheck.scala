@@ -46,4 +46,12 @@ object IndividualInformationCheck extends BasePage {
     submitPage()
     IndividualAgeFormat
   }
+
+  def individualAddressSelection: IndividualAddressLookup.type = {
+    onPage(individualInformationCheck)
+    findByID("value_2").click()
+    submitPage()
+    IndividualAddressLookup
+  }
+
 }

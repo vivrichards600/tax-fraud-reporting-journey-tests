@@ -27,4 +27,10 @@ object IndividualAddressConfirm extends BasePage {
     findByID("continue").click()
     IndividualContactDetails
   }
+
+  def confirmAddressMutlipleIndividuals: SelectConnectionIndividual.type = {
+    onPage(individualAddressConfirm)
+    findByID("continue").click()
+    SelectConnectionIndividual
+  }
 }

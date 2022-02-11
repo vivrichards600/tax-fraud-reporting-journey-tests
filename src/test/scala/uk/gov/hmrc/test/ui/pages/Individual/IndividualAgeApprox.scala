@@ -22,10 +22,10 @@ object IndividualAgeApprox extends BasePage {
 
   val approxAge: String = "What is the individual's approximate age? - Report tax fraud or evasion - GOV.UK"
 
-  def enterApproxAge: IndividualConnection.type = {
+  def enterApproxAge: SelectConnectionIndividual.type = {
     onPage(approxAge)
     findByID("value").sendKeys(random.nextInt(120).toString)
     submitPage()
-    IndividualConnection
+    SelectConnectionIndividual
   }
 }

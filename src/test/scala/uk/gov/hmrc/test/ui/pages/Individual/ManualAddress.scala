@@ -18,12 +18,16 @@ package uk.gov.hmrc.test.ui.pages.Individual
 
 import uk.gov.hmrc.test.ui.pages.BasePage
 
-object IndividualConnection extends BasePage {
+object ManualAddress extends BasePage {
 
-  val individualConnection: String = "How do you know the individual? - Report tax fraud or evasion - GOV.UK"
+  val manualAddress: String = "What is the individual's address? - Report tax fraud or evasion - GOV.UK"
 
-  //  def reportingOther = {
-  //    onPage(individualConnection)
-  //    findByID().click()
-  //    submitPage()
+  def manuallyEnterAddress: IndividualAddressConfirm.type = {
+    onPage(manualAddress)
+    findByID("countryCode").sendKeys("United Kingdom")
+    findByID("line1").sendKeys("Baker Street")
+    findByID("continue").click()
+    IndividualAddressConfirm
+  }
+
 }

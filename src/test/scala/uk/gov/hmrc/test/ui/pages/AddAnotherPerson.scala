@@ -16,6 +16,8 @@
 
 package uk.gov.hmrc.test.ui.pages
 
+import uk.gov.hmrc.test.ui.pages.Individual.IndividualInformationCheck
+
 object AddAnotherPerson extends BasePage {
 
   val addAnotherPerson =
@@ -27,5 +29,13 @@ object AddAnotherPerson extends BasePage {
     findByID("value_1").click()
     submitPage()
     ActivityApproximateValue
+  }
+
+  def enterYesAdditionalPeopleInvolved: IndividualInformationCheck.type = {
+    onPage(addAnotherPerson)
+    //TODO request more meaningful ID
+    findByID("value_0").click()
+    submitPage()
+    IndividualInformationCheck
   }
 }
