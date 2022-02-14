@@ -14,23 +14,20 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.test.ui.pages.Individual
+package uk.gov.hmrc.test.ui.pages.Business
 
 import uk.gov.hmrc.test.ui.pages.BasePage
 
-object IndividualAddressConfirm extends BasePage {
+object ManualAddress extends BasePage {
 
-  val individualAddressConfirm = "Review and confirm - Report tax fraud or evasion - GOV.UK"
+  val manualAddress: String = "Enter address - Report tax fraud or evasion - GOV.UK"
 
-  def confirmAddress: IndividualContactDetails.type = {
-    onPage(individualAddressConfirm)
+  def manuallyEnterAddress: BusinessAddressConfirm.type = {
+    onPage(manualAddress)
+    findByID("countryCode").sendKeys("United Kingdom")
+    findByID("line1").sendKeys("Baker Street")
     findByID("continue").click()
-    IndividualContactDetails
+    BusinessAddressConfirm
   }
 
-  def confirmAddressMultipleIndividuals: SelectConnectionIndividual.type = {
-    onPage(individualAddressConfirm)
-    findByID("continue").click()
-    SelectConnectionIndividual
-  }
 }

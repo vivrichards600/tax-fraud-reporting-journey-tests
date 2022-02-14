@@ -16,6 +16,7 @@
 
 package uk.gov.hmrc.test.ui.pages
 
+import uk.gov.hmrc.test.ui.pages.Business.BusinessInformationCheck
 import uk.gov.hmrc.test.ui.pages.Individual.IndividualInformationCheck
 
 object PersonOrBusiness extends BasePage {
@@ -30,12 +31,12 @@ object PersonOrBusiness extends BasePage {
     IndividualInformationCheck
   }
 
-  //  def reportABusiness: BusinessInformationCheck.type = {
-  //    onPage(personOrBusiness)
-  //    //TODO request ID be changed to more meaningful
-  //    findByID("value_1").click()
-  //    submitPage()
-  //    BusinessInformationCheck
-  //  }
+  def reportABusiness: BusinessInformationCheck.type = {
+    onPage(personOrBusiness)
+    //TODO request ID be changed to more meaningful
+    findByID("value_1").click()
+    submitPage()
+    BusinessInformationCheck
+  }
 
 }

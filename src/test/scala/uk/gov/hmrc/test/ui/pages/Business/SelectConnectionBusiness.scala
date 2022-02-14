@@ -16,7 +16,7 @@
 
 package uk.gov.hmrc.test.ui.pages.Business
 
-import uk.gov.hmrc.test.ui.pages.{AddAnotherPerson, BasePage}
+import uk.gov.hmrc.test.ui.pages.{ActivityApproximateValue, AddAnotherPerson, BasePage}
 
 object SelectConnectionBusiness extends BasePage {
 
@@ -27,6 +27,13 @@ object SelectConnectionBusiness extends BasePage {
     findByID("value_0").click()
     submitPage()
     AddAnotherPerson
+  }
+
+  def selectABusinessConnectionBusiness: ActivityApproximateValue.type = {
+    onPage(selectConnectionBusiness)
+    findByID("value_0").click()
+    submitPage()
+    ActivityApproximateValue
   }
 
 }

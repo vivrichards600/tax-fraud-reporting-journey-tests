@@ -26,4 +26,10 @@ object ProvideYourContactDetails extends BasePage {
     submitPage()
   }
 
+  def selectNoProvideContactDetails = {
+    onPage(howManyPeopleKnow)
+    findByID("value_1").click()
+    submitPage()
+  }
+
 }

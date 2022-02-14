@@ -29,4 +29,10 @@ object BusinessAddressLookup extends BasePage {
     BusinessAddressConfirm
   }
 
+  def selectManualAddress: ManualAddress.type = {
+    onPage(businessIndividualAddressLookup)
+    findByID("manualAddress").click()
+    ManualAddress
+  }
+
 }

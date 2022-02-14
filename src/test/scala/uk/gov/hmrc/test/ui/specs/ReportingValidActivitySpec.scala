@@ -19,7 +19,7 @@ package uk.gov.hmrc.test.ui.specs
 import uk.gov.hmrc.test.ui.pages.ActivityApproximateValue.enterApproximateValue
 import uk.gov.hmrc.test.ui.pages.Individual.DoesPersonOwnBusiness.enterYesIndividualHasBusiness
 import uk.gov.hmrc.test.ui.pages.Individual.IndividualAgeApprox.enterApproxAge
-import uk.gov.hmrc.test.ui.pages.PersonOrBusiness.reportAnIndividual
+import uk.gov.hmrc.test.ui.pages.PersonOrBusiness.{reportABusiness, reportAnIndividual}
 import uk.gov.hmrc.test.ui.pages.ReportTaxFraudHomePage
 import uk.gov.hmrc.test.ui.specs.tags.ZapTests
 
@@ -40,27 +40,37 @@ class ReportingValidActivitySpec extends BaseSpec {
       enterApproximateValue.selectDurationOfActivity.enterActivityDescription.selectHowManyPeopleKnow.selectYesProvideContactDetails
 
       Then("I will receive confirmation my report has been submitted")
+
     }
 
-    Scenario("User anonymously reporting multiple individuals, with an estimated age and other connection") {
+    Scenario("User anonymously reporting multiple individuals, with an estimated age") {
       Given("I start reporting a valid activity for an individual")
       ReportTaxFraudHomePage.loadPage.startApplication.reportingValidActivity.reportAnIndividual.individualAgeSelection.selectApprox
 
       When("I provide age,(approx) and connection with additional individual with manual address")
-      enterApproxAge.selectAConnection.enterNoIndividualHasBusiness.enterYesAdditionalPeopleInvolved.individualAddressSelection.selectManualAddress.manuallyEnterAddress.confirmAddressMutlipleIndividuals.selectAConnection.enterIDontKnowIndividualHasBusiness.enterNoAdditionalPeopleInvolved
+      enterApproxAge.selectAConnection.enterNoIndividualHasBusiness.enterYesAdditionalPeopleInvolved
+//            .individualAddressSelection.selectManualAddress.manuallyEnterAddress.confirmAddressMultipleIndividuals.selectAConnection
+      //      .enterIDontKnowIndividualHasBusiness.enterNoAdditionalPeopleInvolved
 
       And("I provide all activity and personal details and submit")
-      enterApproximateValue.selectDurationOfActivity.enterActivityDescription.selectHowManyPeopleKnow.selectYesProvideContactDetails
+//      enterApproximateValue.selectDurationOfActivity.enterActivityDescription.selectHowManyPeopleKnow.selectNoProvideContactDetails
 
       Then("")
     }
 
-//    Scenario("User is reporting a business with all types of information") {
-//      Given("")
-//      When("")
-//      Then("")
-//    }
-//
+    Scenario("User is reporting a business with all types of information") {
+      Given("I start reporting a valid activity")
+      ReportTaxFraudHomePage.loadPage.startApplication.reportingValidActivity
+
+      When("I provide all information for a business with a manually entered address")
+      reportABusiness.selectAllFields.enterBusinessName.enterBusinessType.selectManualAddress.manuallyEnterAddress.confirmAddress.enterBusinessContactDetails.enterBusinessReferenceNumbers.selectABusinessConnectionBusiness
+
+      And("I provide all activity and personal details and submit")
+      //      enterApproximateValue.selectDurationOfActivity.enterActivityDescription.selectHowManyPeopleKnow.selectYesProvideContactDetails
+
+      Then("")
+    }
+
   }
 
 }
