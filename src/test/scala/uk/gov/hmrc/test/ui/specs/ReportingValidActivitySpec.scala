@@ -43,7 +43,7 @@ class ReportingValidActivitySpec extends BaseSpec {
 
     }
 
-    Scenario("User anonymously reporting multiple individuals, with an estimated age") {
+    Scenario("User anonymously reporting multiple individuals, with an estimated age", ZapTests) {
       Given("I start reporting a valid activity for an individual")
       ReportTaxFraudHomePage.loadPage.startApplication.reportingValidActivity.reportAnIndividual.individualAgeSelection.selectApprox
 
@@ -58,7 +58,7 @@ class ReportingValidActivitySpec extends BaseSpec {
       Then("")
     }
 
-    Scenario("User is reporting a business with all types of information") {
+    Scenario("User is reporting a business with all types of information", ZapTests) {
       Given("I start reporting a valid activity")
       ReportTaxFraudHomePage.loadPage.startApplication.reportingValidActivity
 
