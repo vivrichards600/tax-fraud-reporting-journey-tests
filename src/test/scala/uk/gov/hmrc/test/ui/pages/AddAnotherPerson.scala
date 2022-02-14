@@ -16,27 +16,26 @@
 
 package uk.gov.hmrc.test.ui.pages
 
-import uk.gov.hmrc.test.ui.pages.Business.BusinessInformationCheck
 import uk.gov.hmrc.test.ui.pages.Individual.IndividualInformationCheck
 
-object PersonOrBusiness extends BasePage {
+object AddAnotherPerson extends BasePage {
 
-  val personOrBusiness: String = "Are you reporting an individual or a business? - Report tax fraud or evasion - GOV.UK"
+  val addAnotherPerson =
+    "Are there additional people involved in this activity you want to tell us about? - Report tax fraud or evasion - GOV.UK"
 
-  def reportAnIndividual: IndividualInformationCheck.type = {
-    onPage(personOrBusiness)
-    //TODO request ID be changed to more meaningful
+  def enterNoAdditionalPeopleInvolved: ActivityApproximateValue.type = {
+    onPage(addAnotherPerson)
+    //TODO request more meaningful ID
+    findByID("value_1").click()
+    submitPage()
+    ActivityApproximateValue
+  }
+
+  def enterYesAdditionalPeopleInvolved: IndividualInformationCheck.type = {
+    onPage(addAnotherPerson)
+    //TODO request more meaningful ID
     findByID("value_0").click()
     submitPage()
     IndividualInformationCheck
   }
-
-  def reportABusiness: BusinessInformationCheck.type = {
-    onPage(personOrBusiness)
-    //TODO request ID be changed to more meaningful
-    findByID("value_1").click()
-    submitPage()
-    BusinessInformationCheck
-  }
-
 }

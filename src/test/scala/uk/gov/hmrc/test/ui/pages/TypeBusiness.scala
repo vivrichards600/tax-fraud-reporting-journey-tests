@@ -16,8 +16,18 @@
 
 package uk.gov.hmrc.test.ui.pages
 
-object IndividualAddress extends BasePage {
+import uk.gov.hmrc.test.ui.pages.Business.BusinessAddressLookup
 
-  val individualAddress = "  "
+object TypeBusiness extends BasePage {
 
+  val typeBusiness = "What type of business is it? - Report tax fraud or evasion - GOV.UK"
+
+  val randomString: String = random.nextString(7)
+
+  def enterBusinessType: BusinessAddressLookup.type = {
+    onPage(typeBusiness)
+    findByID("value").sendKeys(randomString)
+    submitPage()
+    BusinessAddressLookup
+  }
 }

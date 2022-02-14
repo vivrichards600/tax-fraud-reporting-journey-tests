@@ -14,18 +14,19 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.test.ui.driver
+package uk.gov.hmrc.test.ui.pages.Business
 
-import com.typesafe.scalalogging.LazyLogging
-import org.openqa.selenium.WebDriver
-import uk.gov.hmrc.webdriver.SingletonDriver
+import uk.gov.hmrc.test.ui.pages.BasePage
 
-trait BrowserDriver extends LazyLogging {
+object BusinessReferenceNumbers extends BasePage {
 
-  if (sys.props.get("browser").isEmpty)
-    logger.info(
-      s"Instantiating Browser: ${sys.props.getOrElse("browser", "'browser' System property not set. This is required")}"
-    )
+  val businessReferenceNumbers = "What are the business's reference numbers? - Report tax fraud or evasion - GOV.UK"
 
-  implicit lazy val driver: WebDriver = SingletonDriver.getInstance()
+  def enterBusinessReferenceNumbers: SelectConnectionBusiness.type = {
+    onPage(businessReferenceNumbers)
+    findByID("vatRegistration").sendKeys("GB123456789")
+    submitPage()
+    SelectConnectionBusiness
+  }
+
 }

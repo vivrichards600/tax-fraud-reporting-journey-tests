@@ -16,21 +16,15 @@
 
 package uk.gov.hmrc.test.ui.pages
 
-import org.openqa.selenium.By
-import uk.gov.hmrc.test.ui.pages.IndividualNino.submitPage
-import uk.gov.hmrc.test.ui.utils.Lists.nameFields
+object HowManyPeopleKnow extends BasePage {
 
-object IndividualName extends BasePage {
+  val howManyPeopleKnow = "How many other people know about the activity? - Report tax fraud or evasion - GOV.UK"
 
-  val individualName = "What is the individual's name? - Report tax fraud or evasion - GOV.UK"
-
-  val randomString: String    = random.nextString(7)
-  val randomNameField: String = nameFields(random.nextInt(nameFields.length))
-
-  def enterNameDetails: IndividualAgeFormat.type = {
-    onPage(individualName)
-    findByID(randomNameField).sendKeys(randomString)
+  def selectHowManyPeopleKnow: ProvideYourContactDetails.type = {
+    onPage(howManyPeopleKnow)
+    findByID("value_0").click()
     submitPage()
-    IndividualAgeFormat
+    ProvideYourContactDetails
   }
+
 }

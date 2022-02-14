@@ -14,18 +14,21 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.test.ui.driver
+package uk.gov.hmrc.test.ui.pages.Individual
 
-import com.typesafe.scalalogging.LazyLogging
-import org.openqa.selenium.WebDriver
-import uk.gov.hmrc.webdriver.SingletonDriver
+import uk.gov.hmrc.test.ui.pages.BasePage
 
-trait BrowserDriver extends LazyLogging {
+object IndividualAgeDOB extends BasePage {
 
-  if (sys.props.get("browser").isEmpty)
-    logger.info(
-      s"Instantiating Browser: ${sys.props.getOrElse("browser", "'browser' System property not set. This is required")}"
-    )
+  val ageDOB: String = "What is this individual's date of birth? - Report tax fraud or evasion - GOV.UK"
 
-  implicit lazy val driver: WebDriver = SingletonDriver.getInstance()
+  def enterDOB: IndividualAddressLookup.type = {
+    onPage(ageDOB)
+    findByID("value.day").sendKeys("25")
+    findByID("value.month").sendKeys("04")
+    findByID("value.year").sendKeys("1994")
+    submitPage()
+    IndividualAddressLookup
+  }
+
 }

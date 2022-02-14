@@ -14,18 +14,20 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.test.ui.pages
+package uk.gov.hmrc.test.ui.pages.Business
 
-object IndividualNino extends BasePage {
+import uk.gov.hmrc.test.ui.pages.BasePage
 
-  val individualNino = "  What is the individual's National Insurance Number? - Report tax fraud or evasion - GOV.UK"
+object ManualAddress extends BasePage {
 
-//  def individualNino:  = {
-//    onPage(individualNino)
-//    //TODO request ID be changed to more meaningful
-//    findByID("value").click()
-//    submitPage()
-//
-//  }
+  val manualAddress: String = "Enter address - Report tax fraud or evasion - GOV.UK"
+
+  def manuallyEnterAddress: BusinessAddressConfirm.type = {
+    onPage(manualAddress)
+    findByID("countryCode").sendKeys("United Kingdom")
+    findByID("line1").sendKeys("Baker Street")
+    findByID("continue").click()
+    BusinessAddressConfirm
+  }
 
 }

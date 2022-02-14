@@ -14,18 +14,17 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.test.ui.driver
+package uk.gov.hmrc.test.ui.pages
 
-import com.typesafe.scalalogging.LazyLogging
-import org.openqa.selenium.WebDriver
-import uk.gov.hmrc.webdriver.SingletonDriver
+object ActivityApproximateValue extends BasePage {
 
-trait BrowserDriver extends LazyLogging {
+  val activityApproximateValue: String =
+    "What is the approximate total value of the activity? - Report tax fraud or evasion - GOV.UK"
 
-  if (sys.props.get("browser").isEmpty)
-    logger.info(
-      s"Instantiating Browser: ${sys.props.getOrElse("browser", "'browser' System property not set. This is required")}"
-    )
-
-  implicit lazy val driver: WebDriver = SingletonDriver.getInstance()
+  def enterApproximateValue: WhenActivityStart.type = {
+    onPage(activityApproximateValue)
+    findByID("value").sendKeys(random.nextInt(2111111118).toString)
+    submitPage()
+    WhenActivityStart
+  }
 }

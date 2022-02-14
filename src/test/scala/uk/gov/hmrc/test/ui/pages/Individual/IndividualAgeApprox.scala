@@ -14,18 +14,18 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.test.ui.driver
+package uk.gov.hmrc.test.ui.pages.Individual
 
-import com.typesafe.scalalogging.LazyLogging
-import org.openqa.selenium.WebDriver
-import uk.gov.hmrc.webdriver.SingletonDriver
+import uk.gov.hmrc.test.ui.pages.BasePage
 
-trait BrowserDriver extends LazyLogging {
+object IndividualAgeApprox extends BasePage {
 
-  if (sys.props.get("browser").isEmpty)
-    logger.info(
-      s"Instantiating Browser: ${sys.props.getOrElse("browser", "'browser' System property not set. This is required")}"
-    )
+  val approxAge: String = "What is the individual's approximate age? - Report tax fraud or evasion - GOV.UK"
 
-  implicit lazy val driver: WebDriver = SingletonDriver.getInstance()
+  def enterApproxAge: SelectConnectionIndividual.type = {
+    onPage(approxAge)
+    findByID("value").sendKeys(random.nextInt(120).toString)
+    submitPage()
+    SelectConnectionIndividual
+  }
 }

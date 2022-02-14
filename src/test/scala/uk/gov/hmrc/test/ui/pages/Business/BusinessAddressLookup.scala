@@ -14,18 +14,25 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.test.ui.driver
+package uk.gov.hmrc.test.ui.pages.Business
 
-import com.typesafe.scalalogging.LazyLogging
-import org.openqa.selenium.WebDriver
-import uk.gov.hmrc.webdriver.SingletonDriver
+import uk.gov.hmrc.test.ui.pages.BasePage
 
-trait BrowserDriver extends LazyLogging {
+object BusinessAddressLookup extends BasePage {
 
-  if (sys.props.get("browser").isEmpty)
-    logger.info(
-      s"Instantiating Browser: ${sys.props.getOrElse("browser", "'browser' System property not set. This is required")}"
-    )
+  val businessIndividualAddressLookup = "What is the business's address? - Report tax fraud or evasion - GOV.UK"
 
-  implicit lazy val driver: WebDriver = SingletonDriver.getInstance()
+  def enterAddress: BusinessAddressConfirm.type = {
+    onPage(businessIndividualAddressLookup)
+    findByID("postcode").sendKeys("FX3 4SH")
+    findByID("continue").click()
+    BusinessAddressConfirm
+  }
+
+  def selectManualAddress: ManualAddress.type = {
+    onPage(businessIndividualAddressLookup)
+    findByID("manualAddress").click()
+    ManualAddress
+  }
+
 }

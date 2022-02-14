@@ -14,23 +14,25 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.test.ui.pages
+package uk.gov.hmrc.test.ui.pages.Individual
 
-object IndividualAgeFormat extends BasePage {
+import uk.gov.hmrc.domain.{Generator, Nino}
+import uk.gov.hmrc.test.ui.pages.BasePage
 
-  val individualAgeFormat = "Select a format to enter this individual's age - Report tax fraud or evasion - GOV.UK"
+object IndividualNino extends BasePage {
 
-  def selectDOB: IndividualAgeDOB.type = {
-    onPage(individualAgeFormat)
-    findByID("value_0").click()
+  val individualNino = "What is the individual's National Insurance Number? - Report tax fraud or evasion - GOV.UK"
+
+  private val ninoGenerator = new Generator(random)
+
+  def generateNino(): Nino = ninoGenerator.nextNino
+
+  def enterIndividualNino: SelectConnectionIndividual.type = {
+    onPage(individualNino)
+    //TODO request ID be changed to more meaningful
+    findByID("value").sendKeys(generateNino().toString())
     submitPage()
-    IndividualAgeDOB
+    SelectConnectionIndividual
   }
 
-  def selectApprox: IndividualAgeApprox.type = {
-    onPage(individualAgeFormat)
-    findByID("value_1").click()
-    submitPage()
-    IndividualAgeApprox
-  }
 }

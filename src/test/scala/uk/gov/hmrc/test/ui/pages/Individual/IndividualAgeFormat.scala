@@ -14,18 +14,25 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.test.ui.pages
+package uk.gov.hmrc.test.ui.pages.Individual
 
-object IndividualContactDetails extends BasePage {
+import uk.gov.hmrc.test.ui.pages.BasePage
 
-  val individualContactDetails = "   What are the individual's contact details? - Report tax fraud or evasion - GOV.UK"
+object IndividualAgeFormat extends BasePage {
 
-//  def individualContactDetails:  = {
-//    onPage(individualContactDetails)
-//    //TODO request ID be changed to more meaningful
-//    findByID("landlineNumber").sendKeys()
-//    submitPage()
-//
-//  }
+  val individualAgeFormat = "Select a format to enter this individual's age - Report tax fraud or evasion - GOV.UK"
 
+  def selectDOB: IndividualAgeDOB.type = {
+    onPage(individualAgeFormat)
+    findByID("value_0").click()
+    submitPage()
+    IndividualAgeDOB
+  }
+
+  def selectApprox: IndividualAgeApprox.type = {
+    onPage(individualAgeFormat)
+    findByID("value_1").click()
+    submitPage()
+    IndividualAgeApprox
+  }
 }

@@ -14,15 +14,22 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.test.ui.pages
+package uk.gov.hmrc.test.ui.pages.Individual
 
-object IndividualAgeApprox extends BasePage {
+import uk.gov.hmrc.test.ui.pages.BasePage
+import uk.gov.hmrc.test.ui.utils.Lists.nameFields
 
-  val approxAge: String = " What is the individual's approximate age? - Report tax fraud or evasion - GOV.UK"
+object IndividualName extends BasePage {
 
-  def enterApproxAge = {
-    onPage(approxAge)
-    findByID("value").sendKeys(random.nextInt(100).toString)
+  val individualName = "What is the individual's name? - Report tax fraud or evasion - GOV.UK"
+
+  val randomString: String    = random.nextString(7)
+  val randomNameField: String = nameFields(random.nextInt(nameFields.length))
+
+  def enterNameDetails: IndividualAgeFormat.type = {
+    onPage(individualName)
+    findByID(randomNameField).sendKeys(randomString)
     submitPage()
+    IndividualAgeFormat
   }
 }

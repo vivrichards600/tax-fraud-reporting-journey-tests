@@ -14,18 +14,23 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.test.ui.pages
+package uk.gov.hmrc.test.ui.pages.Individual
 
-object IndividualAgeDOB extends BasePage {
+import uk.gov.hmrc.test.ui.pages.BasePage
 
-  val ageDOB: String = " What is this individual's date of birth? - Report tax fraud or evasion - GOV.UK"
+object IndividualAddressConfirm extends BasePage {
 
-//  def enterDOB = {
-//    onPage(ageDOB)
-//    findByID("value.day").sendKeys("25")
-//    findByID("value.month").sendKeys("04")
-//    findByID("value.year").sendKeys("1994")
-//    submitPage()
-//  }
+  val individualAddressConfirm = "Review and confirm - Report tax fraud or evasion - GOV.UK"
 
+  def confirmAddress: IndividualContactDetails.type = {
+    onPage(individualAddressConfirm)
+    findByID("continue").click()
+    IndividualContactDetails
+  }
+
+  def confirmAddressMultipleIndividuals: SelectConnectionIndividual.type = {
+    onPage(individualAddressConfirm)
+    findByID("continue").click()
+    SelectConnectionIndividual
+  }
 }

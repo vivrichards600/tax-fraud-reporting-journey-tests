@@ -16,32 +16,20 @@
 
 package uk.gov.hmrc.test.ui.pages
 
-object IndividualInformationCheck extends BasePage {
+object ProvideYourContactDetails extends BasePage {
 
-  val individualInformationCheck = "What do you know about the individual? - Report tax fraud or evasion - GOV.UK"
+  val howManyPeopleKnow = "Do you wish to provide your contact details? - Report tax fraud or evasion - GOV.UK"
 
-  def selectAllFields: IndividualName.type = {
-    onPage(individualInformationCheck)
-    //TODO request ID be changed to more meaningful
-    //Name
+  def selectYesProvideContactDetails = {
+    onPage(howManyPeopleKnow)
     findByID("value_0").click()
-    //Age
-    findByID("value_1").click()
-    //Address
-    findByID("value_2").click()
-    //Contact Details
-    findByID("value_3").click()
-    //National Insurance Number
-    findByID("value_4").click()
     submitPage()
-    IndividualName
   }
 
-  def individualAgeSelection: IndividualAgeFormat.type = {
-    onPage(individualInformationCheck)
-    //TODO request ID be changed to more meaningful
+  def selectNoProvideContactDetails = {
+    onPage(howManyPeopleKnow)
     findByID("value_1").click()
     submitPage()
-    IndividualAgeFormat
   }
+
 }

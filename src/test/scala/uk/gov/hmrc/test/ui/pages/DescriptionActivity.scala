@@ -14,18 +14,20 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.test.ui.driver
+package uk.gov.hmrc.test.ui.pages
 
-import com.typesafe.scalalogging.LazyLogging
-import org.openqa.selenium.WebDriver
-import uk.gov.hmrc.webdriver.SingletonDriver
+object DescriptionActivity extends BasePage {
 
-trait BrowserDriver extends LazyLogging {
+  val descriptionActivity =
+    "Provide a concise description of the activity you are reporting - Report tax fraud or evasion - GOV.UK"
 
-  if (sys.props.get("browser").isEmpty)
-    logger.info(
-      s"Instantiating Browser: ${sys.props.getOrElse("browser", "'browser' System property not set. This is required")}"
-    )
+  val randomString: String = random.nextString(40)
 
-  implicit lazy val driver: WebDriver = SingletonDriver.getInstance()
+  def enterActivityDescription: HowManyPeopleKnow.type = {
+    onPage(descriptionActivity)
+    findByID("value").sendKeys(randomString)
+    submitPage()
+    HowManyPeopleKnow
+  }
+
 }

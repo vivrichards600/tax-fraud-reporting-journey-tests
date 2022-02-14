@@ -14,29 +14,35 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.test.ui.pages
+package uk.gov.hmrc.test.ui.pages.Individual
 
+import uk.gov.hmrc.test.ui.pages.{AddAnotherPerson, BasePage}
 import uk.gov.hmrc.test.ui.pages.Business.BusinessInformationCheck
-import uk.gov.hmrc.test.ui.pages.Individual.IndividualInformationCheck
 
-object PersonOrBusiness extends BasePage {
+object DoesPersonOwnBusiness extends BasePage {
 
-  val personOrBusiness: String = "Are you reporting an individual or a business? - Report tax fraud or evasion - GOV.UK"
+  val doesPersonOwnBusiness =
+    "Does the individual have business details that you can provide? - Report tax fraud or evasion - GOV.UK"
 
-  def reportAnIndividual: IndividualInformationCheck.type = {
-    onPage(personOrBusiness)
-    //TODO request ID be changed to more meaningful
+  def enterYesIndividualHasBusiness: BusinessInformationCheck.type = {
+    onPage(doesPersonOwnBusiness)
     findByID("value_0").click()
     submitPage()
-    IndividualInformationCheck
+    BusinessInformationCheck
   }
 
-  def reportABusiness: BusinessInformationCheck.type = {
-    onPage(personOrBusiness)
-    //TODO request ID be changed to more meaningful
+  def enterNoIndividualHasBusiness: AddAnotherPerson.type = {
+    onPage(doesPersonOwnBusiness)
     findByID("value_1").click()
     submitPage()
-    BusinessInformationCheck
+    AddAnotherPerson
+  }
+
+  def enterIDontKnowIndividualHasBusiness: AddAnotherPerson.type = {
+    onPage(doesPersonOwnBusiness)
+    findByID("value_2").click()
+    submitPage()
+    AddAnotherPerson
   }
 
 }
