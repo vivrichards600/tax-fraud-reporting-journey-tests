@@ -50,6 +50,15 @@ For example, to execute the `run_tests.sh` script using Chrome remote-webdriver 
 
     ./run_tests.sh remote-chrome qa
 
+## Running a11y tests locally
+
+ensure you don't already have an instance of a11y running in docker with command 'docker ps'
+if you do have a11y running in docker, use command 'docker stop a11y'
+if you have run these tests before, remove the a11yReport created in the previous test run
+execute './run_a11y_report'
+open 'a11yReport/accessibility-assessment-report.html' in browser
+
+
 ## Running ZAP tests
 
 ZAP tests can be automated using the HMRC Dynamic Application Security Testing approach. Running 

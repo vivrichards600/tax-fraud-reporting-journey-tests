@@ -18,6 +18,8 @@ logs
 eclipse
 .scala_dependencies
 
+# a11y report
+a11yReport
 # sbt files
 dist
 target
