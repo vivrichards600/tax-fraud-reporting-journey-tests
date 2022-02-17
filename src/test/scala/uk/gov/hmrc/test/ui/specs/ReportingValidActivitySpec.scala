@@ -34,12 +34,12 @@ class ReportingValidActivitySpec extends BaseSpec {
       reportAnIndividual.selectAllFields.enterNameDetails.selectDOB.enterDOB.enterAddress.confirmAddress.enterIndividualContactDetails.enterIndividualNino.selectAConnection
 
       And("The Individual has a business I provide all types of information for")
-      enterYesIndividualHasBusiness.selectAllFields.enterBusinessName.enterBusinessType.enterAddress.confirmAddress.enterBusinessContactDetails.enterBusinessReferenceNumbers.selectABusinessConnectionIndividual.enterNoAdditionalPeopleInvolved
+      enterYesIndividualHasBusiness.selectAllFields.enterBusinessName.enterBusinessType.enterAddress.confirmAddress.enterBusinessContactDetails.enterBusinessReferenceNumbers.selectABusinessConnectionIndividual
 
-      And("I provide all activity and personal details and submit")
-      enterApproximateValue.selectDurationOfActivity.enterActivityDescription.selectHowManyPeopleKnow.selectYesProvideContactDetails
+      // And("I provide all activity and personal details and submit")
+      // enterApproximateValue.selectDurationOfActivity.enterActivityDescription.selectHowManyPeopleKnow.selectYesProvideContactDetails
 
-      Then("I will receive confirmation my report has been submitted")
+      //Then("I will receive confirmation my report has been submitted")
 
     }
 
