@@ -16,19 +16,19 @@
 
 package uk.gov.hmrc.test.ui.pages
 
-import uk.gov.hmrc.test.ui.pages.Individual.IndividualInformationCheck
+import uk.gov.hmrc.test.ui.pages.Individual.{ActivitySourceOfInformation, IndividualInformationCheck}
 
 object AddAnotherPerson extends BasePage {
 
   val addAnotherPerson =
     "Are there additional people involved in this activity you want to tell us about? - Report tax fraud or evasion - GOV.UK"
 
-  def enterNoAdditionalPeopleInvolved: ActivityApproximateValue.type = {
+  def enterNoAdditionalPeopleInvolved: ActivitySourceOfInformation.type = {
     onPage(addAnotherPerson)
     //TODO request more meaningful ID
     findByID("value_1").click()
     submitPage()
-    ActivityApproximateValue
+    ActivitySourceOfInformation
   }
 
   def enterYesAdditionalPeopleInvolved: IndividualInformationCheck.type = {
@@ -38,4 +38,5 @@ object AddAnotherPerson extends BasePage {
     submitPage()
     IndividualInformationCheck
   }
+
 }

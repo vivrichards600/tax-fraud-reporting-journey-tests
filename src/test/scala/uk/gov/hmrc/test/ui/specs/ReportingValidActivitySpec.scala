@@ -34,7 +34,7 @@ class ReportingValidActivitySpec extends BaseSpec {
       reportAnIndividual.selectAllFields.enterNameDetails.selectDOB.enterDOB.enterAddress.confirmAddress.enterIndividualContactDetails.enterIndividualNino.selectAConnection
 
       And("The Individual has a business I provide all types of information for")
-      enterYesIndividualHasBusiness.selectAllFields.enterBusinessName.enterBusinessType.enterAddress.confirmAddress.enterBusinessContactDetails.enterBusinessReferenceNumbers.selectABusinessConnectionIndividual.enterNoAdditionalPeopleInvolved
+      enterYesIndividualHasBusiness.selectAllFields.enterBusinessName.enterBusinessType.enterAddress.confirmAddress.enterBusinessContactDetails.enterBusinessReferenceNumbers.selectABusinessConnectionIndividual.selectSourceOFInformationIndividual
 
       And("I provide all activity and personal details and submit")
       enterApproximateValue.selectDurationOfActivity.enterActivityDescription.selectHowManyPeopleKnow.selectYesProvideContactDetails
