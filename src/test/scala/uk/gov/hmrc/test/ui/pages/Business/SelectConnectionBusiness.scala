@@ -16,8 +16,7 @@
 
 package uk.gov.hmrc.test.ui.pages.Business
 
-import uk.gov.hmrc.test.ui.pages.{ActivityApproximateValue, BasePage}
-import uk.gov.hmrc.test.ui.pages.Individual.ActivitySourceOfInformation
+import uk.gov.hmrc.test.ui.pages.{ActivityApproximateValue, ActivitySourceOfInformation, BasePage}
 
 object SelectConnectionBusiness extends BasePage {
 
