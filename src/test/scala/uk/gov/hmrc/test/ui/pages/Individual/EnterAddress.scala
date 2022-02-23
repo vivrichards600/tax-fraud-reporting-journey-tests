@@ -18,17 +18,15 @@ package uk.gov.hmrc.test.ui.pages.Individual
 
 import uk.gov.hmrc.test.ui.pages.BasePage
 
-object IndividualAgeDOB extends BasePage {
+object EnterAddress extends BasePage {
 
-  val ageDOB: String = "What is this individual's date of birth? - Report tax fraud or evasion - GOV.UK"
+  val EnterAddress = "Enter address - Report tax fraud or evasion - GOV.UK"
 
-  def enterDOB: EnterAddress.type = {
-    onPage(ageDOB)
-    findByID("value.day").sendKeys("25")
-    findByID("value.month").sendKeys("04")
-    findByID("value.year").sendKeys("1994")
+  def individualEnterAddress: IndividualAddressLookup.type = {
+    onPage(EnterAddress)
+    findByID("countryCode").sendKeys("United Kingdom")
     submitPage()
-    EnterAddress
+    IndividualAddressLookup
   }
 
 }

@@ -22,7 +22,7 @@ object ActivitySourceOfInformation extends BasePage {
 
   def selectActivitySourceOfInfo: ActivityApproximateValue.type = {
     onPage(selectActivitySourceOfInformation)
-    findByID("value_0").click()
+    findByID("value_1").click()
     submitPage()
     ActivityApproximateValue
   }
