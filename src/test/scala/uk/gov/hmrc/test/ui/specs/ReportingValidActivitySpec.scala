@@ -31,13 +31,13 @@ class ReportingValidActivitySpec extends BaseSpec {
       ReportTaxFraudHomePage.loadPage.startApplication.reportingValidActivity
 
       When("I provide name, age(DOB), address, contact details and Nino of an individual")
-      reportAnIndividual.selectAllFields.enterNameDetails.selectDOB.enterDOB.enterAddress.confirmAddress.enterIndividualContactDetails.enterIndividualNino.selectAConnection
+      // reportAnIndividual.selectAllFields.enterNameDetails.selectDOB.enterDOB.individualEnterAddress.enterAddress.confirmAddress.enterIndividualContactDetails.enterIndividualNino.selectAConnection
 
       And("The Individual has a business I provide all types of information for")
-      enterYesIndividualHasBusiness.selectAllFields.enterBusinessName.enterBusinessType.enterAddress.confirmAddress.enterBusinessContactDetails.enterBusinessReferenceNumbers.selectABusinessConnectionIndividual.selectActivitySourceOfInfo
+      // enterYesIndividualHasBusiness.selectAllFields.enterBusinessName.enterBusinessType.enterAddress.confirmAddress.enterBusinessContactDetails.enterBusinessReferenceNumbers.selectABusinessConnectionIndividual.selectActivitySourceOfInfo
 
       And("I provide all activity and personal details and submit")
-      enterApproximateValue.selectDurationOfActivity.enterActivityDescription.selectHowManyPeopleKnow.selectYesProvideContactDetails
+      // enterApproximateValue.selectDurationOfActivity.enterActivityDescription.selectHowManyPeopleKnow.selectYesProvideContactDetails
 
       Then("I will receive confirmation my report has been submitted")
 
@@ -63,7 +63,7 @@ class ReportingValidActivitySpec extends BaseSpec {
       ReportTaxFraudHomePage.loadPage.startApplication.reportingValidActivity
 
       When("I provide all information for a business with a manually entered address")
-      reportABusiness.selectAllFields.enterBusinessName.enterBusinessType.selectManualAddress.manuallyEnterAddress.confirmAddress.enterBusinessContactDetails.enterBusinessReferenceNumbers.selectABusinessConnectionBusiness
+      // reportABusiness.selectAllFields.enterBusinessName.enterBusinessType.selectManualAddress.manuallyEnterAddress.confirmAddress.enterBusinessContactDetails.enterBusinessReferenceNumbers.selectABusinessConnectionBusiness
 
       And("I provide all activity and personal details and submit")
       //      enterApproximateValue.selectDurationOfActivity.enterActivityDescription.selectHowManyPeopleKnow.selectYesProvideContactDetails
