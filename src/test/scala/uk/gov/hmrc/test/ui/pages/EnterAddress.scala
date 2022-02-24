@@ -14,9 +14,11 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.test.ui.pages.Individual
+package uk.gov.hmrc.test.ui.pages
 
-import uk.gov.hmrc.test.ui.pages.BasePage
+import uk.gov.hmrc.test.ui.pages.Business.BusinessAddressLookup
+import uk.gov.hmrc.test.ui.pages.Individual.IndividualAddressLookup
+import uk.gov.hmrc.test.ui.pages.Individual.IndividualAddressLookup.findByID
 
 object EnterAddress extends BasePage {
 
@@ -25,8 +27,16 @@ object EnterAddress extends BasePage {
   def individualEnterAddress: IndividualAddressLookup.type = {
     onPage(EnterAddress)
     findByID("countryCode").sendKeys("United Kingdom")
+    findByID("continue").click()
     submitPage()
     IndividualAddressLookup
   }
 
+  def businessEnterAddress: BusinessAddressLookup.type = {
+    onPage(EnterAddress)
+    findByID("countryCode").sendKeys("United Kingdom")
+    findByID("continue").click()
+    submitPage()
+    BusinessAddressLookup
+  }
 }
