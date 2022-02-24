@@ -16,7 +16,7 @@
 
 package uk.gov.hmrc.test.ui.pages.Individual
 
-import uk.gov.hmrc.test.ui.pages.BasePage
+import uk.gov.hmrc.test.ui.pages.{BasePage, EnterAddress}
 
 object IndividualAgeDOB extends BasePage {
 
