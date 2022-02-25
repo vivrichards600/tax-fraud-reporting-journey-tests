@@ -14,19 +14,19 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.test.ui.pages.Individual
+package uk.gov.hmrc.test.ui.pages
 
-import uk.gov.hmrc.test.ui.pages.BasePage
+object YourContactDetails extends BasePage {
 
-object EnterAddress extends BasePage {
+  val whatAreYourDetails = "What are your details? - Report tax fraud or evasion - GOV.UK"
 
-  val EnterAddress = "Enter address - Report tax fraud or evasion - GOV.UK"
-
-  def individualEnterAddress: IndividualAddressLookup.type = {
-    onPage(EnterAddress)
-    findByID("countryCode").sendKeys("United Kingdom")
+  def enterContactDetails: AnySupportingInformation.type = {
+    onPage(whatAreYourDetails)
+    findByID("firstName").sendKeys(random.nextString(5))
+    findByID("lastName").sendKeys(random.nextString(5))
+    findByID("tel").sendKeys("1234567890")
+    findByID("memorableWord").sendKeys(random.nextString(5))
     submitPage()
-    IndividualAddressLookup
+    AnySupportingInformation
   }
-
 }

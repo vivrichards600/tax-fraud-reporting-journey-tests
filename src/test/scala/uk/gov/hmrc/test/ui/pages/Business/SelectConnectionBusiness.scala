@@ -16,24 +16,24 @@
 
 package uk.gov.hmrc.test.ui.pages.Business
 
-import uk.gov.hmrc.test.ui.pages.{ActivityApproximateValue, ActivitySourceOfInformation, BasePage}
+import uk.gov.hmrc.test.ui.pages.{ActivityApproximateValue, ActivitySourceOfInformation, AddAnotherPerson, BasePage}
 
 object SelectConnectionBusiness extends BasePage {
 
   val selectConnectionBusiness = "How do you know the business? - Report tax fraud or evasion - GOV.UK"
 
-  def selectABusinessConnectionIndividual: ActivitySourceOfInformation.type = {
+  def selectABusinessConnectionIndividual: AddAnotherPerson.type = {
+    onPage(selectConnectionBusiness)
+    findByID("value_0").click()
+    submitPage()
+    AddAnotherPerson
+  }
+
+  def selectABusinessConnectionBusiness: ActivitySourceOfInformation.type = {
     onPage(selectConnectionBusiness)
     findByID("value_0").click()
     submitPage()
     ActivitySourceOfInformation
-  }
-
-  def selectABusinessConnectionBusiness: ActivityApproximateValue.type = {
-    onPage(selectConnectionBusiness)
-    findByID("value_0").click()
-    submitPage()
-    ActivityApproximateValue
   }
 
 }

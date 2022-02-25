@@ -16,7 +16,8 @@
 
 package uk.gov.hmrc.test.ui.pages.Individual
 
-import uk.gov.hmrc.test.ui.pages.BasePage
+import net.bytebuddy.asm.Advice.Enter
+import uk.gov.hmrc.test.ui.pages.{BasePage, EnterAddress}
 
 object IndividualInformationCheck extends BasePage {
 
@@ -47,11 +48,11 @@ object IndividualInformationCheck extends BasePage {
     IndividualAgeFormat
   }
 
-  def individualAddressSelection: IndividualAddressLookup.type = {
+  def individualAddressSelection: EnterAddress.type = {
     onPage(individualInformationCheck)
     findByID("value_2").click()
     submitPage()
-    IndividualAddressLookup
+    EnterAddress
   }
 
 }

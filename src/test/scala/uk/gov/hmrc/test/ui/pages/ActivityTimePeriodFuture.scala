@@ -16,22 +16,15 @@
 
 package uk.gov.hmrc.test.ui.pages
 
-object ProvideYourContactDetails extends BasePage {
+object ActivityTimePeriodFuture extends BasePage {
 
-  val howManyPeopleKnow = "Do you wish to provide your contact details? - Report tax fraud or evasion - GOV.UK"
+  val whenWillActivityLikelyHappen = "When will the activity likely happen? - Report tax fraud or evasion - GOV.UK"
 
-  def selectYesProvideContactDetails: YourContactDetails.type = {
-    onPage(howManyPeopleKnow)
+  def selectWhenActivityWillHappen: HowManyPeopleKnow.type = {
+    onPage(whenWillActivityLikelyHappen)
     findByID("value_0").click()
     submitPage()
-    YourContactDetails
-  }
-
-  def selectNoProvideContactDetails: CheckYourAnswers.type = {
-    onPage(howManyPeopleKnow)
-    findByID("value_1").click()
-    submitPage()
-    CheckYourAnswers
+    HowManyPeopleKnow
   }
 
 }

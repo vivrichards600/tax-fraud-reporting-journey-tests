@@ -23,11 +23,11 @@ object DescriptionActivity extends BasePage {
 
   val randomString: String = random.nextString(40)
 
-  def enterActivityDescription: HowManyPeopleKnow.type = {
+  def enterActivityDescription: ProvideYourContactDetails.type = {
     onPage(descriptionActivity)
     findByID("value").sendKeys(randomString)
     submitPage()
-    HowManyPeopleKnow
+    ProvideYourContactDetails
   }
 
 }

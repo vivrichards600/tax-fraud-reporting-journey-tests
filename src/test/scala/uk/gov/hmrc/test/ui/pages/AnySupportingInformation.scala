@@ -16,16 +16,15 @@
 
 package uk.gov.hmrc.test.ui.pages
 
-object Result extends BasePage {
+object AnySupportingInformation extends BasePage {
 
-//  val checkYourVatResult   = "Your VAT calculation"
-//  val resultOutcome        = "resultOutcome"
-//  val useSetVATFlatRate    = "Use the 16.5% VAT flat rate"
-//  val useUniqueVATFlatRate = "Use the VAT flat rate for your business type"
-//
-//  def result: String = {
-//    onPage(checkYourVatResult)
-//    driver.findElement(By.id(resultOutcome)).getText
-//  }
+  val anySupportingInformation = "Do you have any supporting information? - Report tax fraud or evasion - GOV.UK"
+
+  def selectYesSupportingInformation: DocumentationDescription.type = {
+    onPage(anySupportingInformation)
+    findByID("value_0").click()
+    submitPage()
+    DocumentationDescription
+  }
 
 }

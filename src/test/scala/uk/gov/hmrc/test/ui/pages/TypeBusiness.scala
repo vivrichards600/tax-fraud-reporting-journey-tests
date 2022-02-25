@@ -24,10 +24,10 @@ object TypeBusiness extends BasePage {
 
   val randomString: String = random.nextString(7)
 
-  def enterBusinessType: BusinessAddressLookup.type = {
+  def enterBusinessType: EnterAddress.type = {
     onPage(typeBusiness)
     findByID("value").sendKeys(randomString)
     submitPage()
-    BusinessAddressLookup
+    EnterAddress
   }
 }
