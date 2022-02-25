@@ -20,11 +20,11 @@ object HowManyPeopleKnow extends BasePage {
 
   val howManyPeopleKnow = "How many other people know about the activity? - Report tax fraud or evasion - GOV.UK"
 
-  def selectHowManyPeopleKnow: ProvideYourContactDetails.type = {
+  def selectHowManyPeopleKnow: DescriptionActivity.type = {
     onPage(howManyPeopleKnow)
     findByID("value_0").click()
     submitPage()
-    ProvideYourContactDetails
+    DescriptionActivity
   }
 
 }

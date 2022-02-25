@@ -27,16 +27,16 @@ object EnterAddress extends BasePage {
   def individualEnterAddress: IndividualAddressLookup.type = {
     onPage(EnterAddress)
     findByID("countryCode").sendKeys("United Kingdom")
+    findByID("pageHeading").click()
     findByID("continue").click()
-    submitPage()
     IndividualAddressLookup
   }
 
   def businessEnterAddress: BusinessAddressLookup.type = {
     onPage(EnterAddress)
     findByID("countryCode").sendKeys("United Kingdom")
+    findByID("pageHeading").click()
     findByID("continue").click()
-    submitPage()
     BusinessAddressLookup
   }
 }

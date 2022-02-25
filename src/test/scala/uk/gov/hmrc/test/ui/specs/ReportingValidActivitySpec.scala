@@ -17,11 +17,13 @@
 package uk.gov.hmrc.test.ui.specs
 
 import uk.gov.hmrc.test.ui.pages.ActivityApproximateValue.enterApproximateValue
+import uk.gov.hmrc.test.ui.pages.ActivitySourceOfInformation.selectActivitySourceOfInfo
 import uk.gov.hmrc.test.ui.pages.Individual.DoesPersonOwnBusiness.enterYesIndividualHasBusiness
 import uk.gov.hmrc.test.ui.pages.Individual.IndividualAgeApprox.enterApproxAge
 import uk.gov.hmrc.test.ui.pages.PersonOrBusiness.{reportABusiness, reportAnIndividual}
+import uk.gov.hmrc.test.ui.pages.ReportSubmitted.confirmSubmission
 import uk.gov.hmrc.test.ui.pages.ReportTaxFraudHomePage
-import uk.gov.hmrc.test.ui.specs.tags.ZapTests
+import uk.gov.hmrc.test.ui.specs.tags.{Solo, ZapTests}
 
 class ReportingValidActivitySpec extends BaseSpec {
 
@@ -34,13 +36,13 @@ class ReportingValidActivitySpec extends BaseSpec {
       reportAnIndividual.selectAllFields.enterNameDetails.selectDOB.enterDOB.individualEnterAddress.enterAddress.confirmAddress.enterIndividualContactDetails.enterIndividualNino.selectAConnection
 
       And("The Individual has a business I provide all types of information for")
-      enterYesIndividualHasBusiness.selectAllFields.enterBusinessName.enterBusinessType.businessEnterAddress.enterAddress.confirmAddress.enterBusinessContactDetails.enterBusinessReferenceNumbers.selectABusinessConnectionIndividual.selectActivitySourceOfInfo
+      enterYesIndividualHasBusiness.selectAllFields.enterBusinessName.enterBusinessType.businessEnterAddress.enterAddress.confirmAddress.enterBusinessContactDetails.enterBusinessReferenceNumbers.selectABusinessConnectionIndividual.enterNoAdditionalPeopleInvolved.selectActivitySourceOfInfo
 
-      And("I provide all activity and personal details and submit")
-      enterApproximateValue.selectDurationOfActivity.enterActivityDescription.selectHowManyPeopleKnow.selectYesProvideContactDetails
+      And("I provide all activity and personal details with additional info and submit")
+      enterApproximateValue.selectDurationOfActivity.selectHowManyPeopleKnow.enterActivityDescription.selectYesProvideContactDetails.enterContactDetails.selectYesSupportingInformation.enterSupportingInformation.confirmAnswers.submit
 
       Then("I will receive confirmation my report has been submitted")
-
+      confirmSubmission
     }
 
     Scenario("User anonymously reporting multiple individuals, with an estimated age", ZapTests) {
@@ -48,14 +50,13 @@ class ReportingValidActivitySpec extends BaseSpec {
       ReportTaxFraudHomePage.loadPage.startApplication.reportingValidActivity.reportAnIndividual.individualAgeSelection.selectApprox
 
       When("I provide age,(approx) and connection with additional individual with manual address")
-      enterApproxAge.selectAConnection.enterNoIndividualHasBusiness.enterYesAdditionalPeopleInvolved
-//            .individualAddressSelection.selectManualAddress.manuallyEnterAddress.confirmAddressMultipleIndividuals.selectAConnection
-      //      .enterIDontKnowIndividualHasBusiness.enterNoAdditionalPeopleInvolved
+      enterApproxAge.selectAConnection.enterNoIndividualHasBusiness.enterYesAdditionalPeopleInvolved.individualAddressSelection.individualEnterAddress.selectManualAddress.manuallyEnterAddress.confirmAddressMultipleIndividuals.selectAConnection.enterIDontKnowIndividualHasBusiness.enterNoAdditionalPeopleInvolved
 
-      And("I provide all activity and personal details and submit")
-//      enterApproximateValue.selectDurationOfActivity.enterActivityDescription.selectHowManyPeopleKnow.selectNoProvideContactDetails
+      And("I provide all activity without personal details and submit")
+      selectActivitySourceOfInfo.enterApproximateValue.selectDurationOfActivity.selectHowManyPeopleKnow.enterActivityDescription.selectNoProvideContactDetails.confirmAnswers.submit
 
-      Then("")
+      Then("I will receive confirmation my report has been submitted")
+      confirmSubmission
     }
 
     Scenario("User is reporting a business with all types of information", ZapTests) {
@@ -65,10 +66,11 @@ class ReportingValidActivitySpec extends BaseSpec {
       When("I provide all information for a business with a manually entered address")
       reportABusiness.selectAllFields.enterBusinessName.enterBusinessType.businessEnterAddress.selectManualAddress.manuallyEnterAddress.confirmAddress.enterBusinessContactDetails.enterBusinessReferenceNumbers.selectABusinessConnectionBusiness
 
-      And("I provide all activity and personal details and submit")
-      enterApproximateValue.selectDurationOfActivity.enterActivityDescription.selectHowManyPeopleKnow.selectYesProvideContactDetails
+      And("I provide all activity without personal details for future activity and submit")
+      selectActivitySourceOfInfo.enterApproximateValue.selectFutureActivity.selectWhenActivityWillHappen.selectHowManyPeopleKnow.enterActivityDescription.selectNoProvideContactDetails.confirmAnswers.submit
 
-      Then("")
+      Then("I will receive confirmation my report has been submitted")
+      confirmSubmission
     }
 
   }

@@ -20,11 +20,18 @@ object WhenActivityStart extends BasePage {
 
   val whenActivityStart = "What is the duration of the reported activity? - Report tax fraud or evasion - GOV.UK"
 
-  def selectDurationOfActivity: DescriptionActivity.type = {
+  def selectDurationOfActivity: HowManyPeopleKnow.type = {
     onPage(whenActivityStart)
     findByID("value_0").click()
     submitPage()
-    DescriptionActivity
+    HowManyPeopleKnow
+  }
+
+  def selectFutureActivity: ActivityTimePeriodFuture.type = {
+    onPage(whenActivityStart)
+    findByID("value_5").click()
+    submitPage()
+    ActivityTimePeriodFuture
   }
 
 }

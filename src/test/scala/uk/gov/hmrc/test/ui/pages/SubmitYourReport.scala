@@ -16,22 +16,13 @@
 
 package uk.gov.hmrc.test.ui.pages
 
-object ProvideYourContactDetails extends BasePage {
+object SubmitYourReport extends BasePage {
 
-  val howManyPeopleKnow = "Do you wish to provide your contact details? - Report tax fraud or evasion - GOV.UK"
+  val submitYourReport = "Submit your report - Report tax fraud or evasion - GOV.UK"
 
-  def selectYesProvideContactDetails: YourContactDetails.type = {
-    onPage(howManyPeopleKnow)
-    findByID("value_0").click()
+  def submit: ReportSubmitted.type = {
+    onPage(submitYourReport)
     submitPage()
-    YourContactDetails
+    ReportSubmitted
   }
-
-  def selectNoProvideContactDetails: CheckYourAnswers.type = {
-    onPage(howManyPeopleKnow)
-    findByID("value_1").click()
-    submitPage()
-    CheckYourAnswers
-  }
-
 }

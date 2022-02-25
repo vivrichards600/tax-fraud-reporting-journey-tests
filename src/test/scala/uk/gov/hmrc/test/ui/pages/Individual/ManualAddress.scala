@@ -20,7 +20,9 @@ import uk.gov.hmrc.test.ui.pages.BasePage
 
 object ManualAddress extends BasePage {
 
-  val manualAddress: String = "What is the individual's address? - Report tax fraud or evasion - GOV.UK"
+  val manualAddress: String = "Enter address - Report tax fraud or evasion - GOV.UK"
+  //TODO h1/title changed with addresslookup  change, will check to see if we are changing it back
+  //  val manualAddress: String = "What is the individual's address? - Report tax fraud or evasion - GOV.UK"
 
   def manuallyEnterAddress: IndividualAddressConfirm.type = {
     onPage(manualAddress)
