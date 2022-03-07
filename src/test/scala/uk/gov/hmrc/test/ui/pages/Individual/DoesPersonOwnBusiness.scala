@@ -16,13 +16,14 @@
 
 package uk.gov.hmrc.test.ui.pages.Individual
 
-import uk.gov.hmrc.test.ui.pages.{AddAnotherPerson, BasePage}
+import uk.gov.hmrc.test.ui.pages.AddAnotherIndividual.addAnotherIndividual
+import uk.gov.hmrc.test.ui.pages.{AddAnotherIndividual, AddAnotherPerson, BasePage}
 import uk.gov.hmrc.test.ui.pages.Business.BusinessInformationCheck
 
 object DoesPersonOwnBusiness extends BasePage {
 
   val doesPersonOwnBusiness =
-    "Does the individual have business details that you can provide? - Report tax fraud or evasion - GOV.UK"
+    "Does the individual have business details? - Report tax fraud or evasion - GOV.UK"
 
   def enterYesIndividualHasBusiness: BusinessInformationCheck.type = {
     onPage(doesPersonOwnBusiness)
@@ -38,11 +39,11 @@ object DoesPersonOwnBusiness extends BasePage {
     AddAnotherPerson
   }
 
-  def enterIDontKnowIndividualHasBusiness: AddAnotherPerson.type = {
+  def enterIDontKnowIndividualHasBusiness: addAnotherIndividual.type = {
     onPage(doesPersonOwnBusiness)
     findByID("value_2").click()
     submitPage()
-    AddAnotherPerson
+    addAnotherIndividual
   }
 
 }

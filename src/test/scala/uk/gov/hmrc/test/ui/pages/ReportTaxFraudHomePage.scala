@@ -20,7 +20,7 @@ import uk.gov.hmrc.test.ui.conf.TestConfiguration
 
 object ReportTaxFraudHomePage extends BasePage {
   val url: String        = TestConfiguration.url("tax-fraud-reporting-frontend")
-  val reportTaxFraudHome = "Using this service - Report tax fraud or evasion - GOV.UK"
+  val reportTaxFraudHome = "What you need to know - Report tax fraud or evasion - GOV.UK"
 
   def loadPage: this.type = {
     driver.navigate().to(url)

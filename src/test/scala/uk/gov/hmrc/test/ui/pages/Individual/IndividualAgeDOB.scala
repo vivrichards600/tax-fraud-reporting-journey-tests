@@ -20,7 +20,7 @@ import uk.gov.hmrc.test.ui.pages.{BasePage, EnterAddress}
 
 object IndividualAgeDOB extends BasePage {
 
-  val ageDOB: String = "What is this individual's date of birth? - Report tax fraud or evasion - GOV.UK"
+  val ageDOB: String = "What is the individual's date of birth? - Report tax fraud or evasion - GOV.UK"
 
   def enterDOB: EnterAddress.type = {
     onPage(ageDOB)

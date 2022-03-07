@@ -20,7 +20,7 @@ import uk.gov.hmrc.test.ui.pages.BasePage
 
 object IndividualAgeFormat extends BasePage {
 
-  val individualAgeFormat = "Select a format to enter this individual's age - Report tax fraud or evasion - GOV.UK"
+  val individualAgeFormat = "Select a format to enter the individual's age - Report tax fraud or evasion - GOV.UK"
 
   def selectDOB: IndividualAgeDOB.type = {
     onPage(individualAgeFormat)

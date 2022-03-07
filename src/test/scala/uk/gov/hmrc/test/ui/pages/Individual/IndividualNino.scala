@@ -21,7 +21,7 @@ import uk.gov.hmrc.test.ui.pages.BasePage
 
 object IndividualNino extends BasePage {
 
-  val individualNino = "What is the individual's National Insurance Number? - Report tax fraud or evasion - GOV.UK"
+  val individualNino = "What is the individual's National Insurance number? - Report tax fraud or evasion - GOV.UK"
 
   private val ninoGenerator = new Generator(random)
 

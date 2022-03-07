@@ -19,7 +19,7 @@ package uk.gov.hmrc.test.ui.pages
 object ActivityApproximateValue extends BasePage {
 
   val activityApproximateValue: String =
-    "What is the approximate total value of the activity? - Report tax fraud or evasion - GOV.UK"
+    "What is the total value of the activity you are reporting? - Report tax fraud or evasion - GOV.UK"
 
   def enterApproximateValue: WhenActivityStart.type = {
     onPage(activityApproximateValue)

@@ -26,7 +26,7 @@ object PersonOrBusiness extends BasePage {
   def reportAnIndividual: IndividualInformationCheck.type = {
     onPage(personOrBusiness)
     //TODO request ID be changed to more meaningful
-    findByID("value_0").click()
+    findByID("value_individual").click()
     submitPage()
     IndividualInformationCheck
   }
@@ -34,7 +34,7 @@ object PersonOrBusiness extends BasePage {
   def reportABusiness: BusinessInformationCheck.type = {
     onPage(personOrBusiness)
     //TODO request ID be changed to more meaningful
-    findByID("value_1").click()
+    findByID("value_business").click()
     submitPage()
     BusinessInformationCheck
   }

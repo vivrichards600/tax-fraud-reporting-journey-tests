@@ -18,7 +18,8 @@ package uk.gov.hmrc.test.ui.pages
 
 object ActivitySourceOfInformation extends BasePage {
 
-  val selectActivitySourceOfInformation = "How do you know this information? - Report tax fraud or evasion - GOV.UK"
+  val selectActivitySourceOfInformation =
+    "How do you know about the activity you are reporting? - Report tax fraud or evasion - GOV.UK"
 
   def selectActivitySourceOfInfo: ActivityApproximateValue.type = {
     onPage(selectActivitySourceOfInformation)

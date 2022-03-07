@@ -16,18 +16,20 @@
 
 package uk.gov.hmrc.test.ui.pages
 
-object DescriptionActivity extends BasePage {
+import uk.gov.hmrc.test.ui.pages.ActivitySourceOfInformation.selectActivitySourceOfInformation
+import uk.gov.hmrc.test.ui.pages.Individual.IndividualInformationCheck
 
-  val descriptionActivity =
-    "Briefly describe the activity you are reporting - Report tax fraud or evasion - GOV.UK"
+object AddAnotherIndividual extends BasePage {
 
-  val randomString: String = random.nextString(40)
+  val addAnotherIndividual =
+    "You have added 2 individual - Report tax fraud or evasion - GOV.UK"
 
-  def enterActivityDescription: ProvideYourContactDetails.type = {
-    onPage(descriptionActivity)
-    findByID("value").sendKeys(randomString)
+  def enterNoneAdditionalPeopleInvolved: selectActivitySourceOfInformation.type = {
+    onPage(addAnotherIndividual)
+    //TODO request more meaningful ID
+    findByID("value_0").click()
     submitPage()
-    ProvideYourContactDetails
+    selectActivitySourceOfInformation
   }
 
 }

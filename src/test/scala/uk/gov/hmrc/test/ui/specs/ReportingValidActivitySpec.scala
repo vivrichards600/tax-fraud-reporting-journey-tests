@@ -50,7 +50,7 @@ class ReportingValidActivitySpec extends BaseSpec {
       ReportTaxFraudHomePage.loadPage.startApplication.reportingValidActivity.reportAnIndividual.individualAgeSelection.selectApprox
 
       When("I provide age,(approx) and connection with additional individual with manual address")
-      enterApproxAge.selectAConnection.enterNoIndividualHasBusiness.enterYesAdditionalPeopleInvolved.individualAddressSelection.individualEnterAddress.selectManualAddress.manuallyEnterAddress.confirmAddressMultipleIndividuals.selectAConnection.enterIDontKnowIndividualHasBusiness.enterNoAdditionalPeopleInvolved
+      enterApproxAge.selectAConnection.enterNoIndividualHasBusiness.enterYesAdditionalPeopleInvolved.individualAddressSelection.individualEnterAddress.selectManualAddress.manuallyEnterAddress.confirmAddressMultipleIndividuals.selectAConnection.enterIDontKnowIndividualHasBusiness.enterNoneAdditionalPeopleInvolved
 
       And("I provide all activity without personal details and submit")
       selectActivitySourceOfInfo.enterApproximateValue.selectDurationOfActivity.selectHowManyPeopleKnow.enterActivityDescription.selectNoProvideContactDetails.confirmAnswers.submit
