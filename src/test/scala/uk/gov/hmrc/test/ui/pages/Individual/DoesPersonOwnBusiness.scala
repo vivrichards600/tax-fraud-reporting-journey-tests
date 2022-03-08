@@ -16,7 +16,6 @@
 
 package uk.gov.hmrc.test.ui.pages.Individual
 
-import uk.gov.hmrc.test.ui.pages.AddAnotherIndividual.addAnotherIndividual
 import uk.gov.hmrc.test.ui.pages.{AddAnotherIndividual, AddAnotherPerson, BasePage}
 import uk.gov.hmrc.test.ui.pages.Business.BusinessInformationCheck
 
@@ -39,11 +38,11 @@ object DoesPersonOwnBusiness extends BasePage {
     AddAnotherPerson
   }
 
-  def enterIDontKnowIndividualHasBusiness: addAnotherIndividual.type = {
+  def enterIDontKnowIndividualHasBusiness: AddAnotherIndividual.type = {
     onPage(doesPersonOwnBusiness)
     findByID("value_2").click()
     submitPage()
-    addAnotherIndividual
+    AddAnotherIndividual
   }
 
 }
