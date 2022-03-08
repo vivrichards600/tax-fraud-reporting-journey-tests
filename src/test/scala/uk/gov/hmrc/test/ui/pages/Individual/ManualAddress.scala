@@ -27,6 +27,7 @@ object ManualAddress extends BasePage {
   def manuallyEnterAddress: IndividualAddressConfirm.type = {
     onPage(manualAddress)
     findByID("countryCode").sendKeys("United Kingdom")
+    Thread.sleep(2000)
     findByID("line1").sendKeys("Baker Street")
     findByID("continue").click()
     IndividualAddressConfirm
