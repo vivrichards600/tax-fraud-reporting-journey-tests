@@ -24,12 +24,12 @@ object AddAnotherIndividual extends BasePage {
   val addAnotherIndividual =
     "You have added 2 individual - Report tax fraud or evasion - GOV.UK"
 
-  def enterNoneAdditionalPeopleInvolved: selectActivitySourceOfInformation.type = {
+  def enterNoneAdditionalPeopleInvolved: ActivitySourceOfInformation.type = {
     onPage(addAnotherIndividual)
     //TODO request more meaningful ID
-    findByID("value_0").click()
+    findByID("value_1").click()
     submitPage()
-    selectActivitySourceOfInformation
+    ActivitySourceOfInformation
   }
 
 }
