@@ -18,7 +18,8 @@ package uk.gov.hmrc.test.ui.pages
 
 object WhenActivityStart extends BasePage {
 
-  val whenActivityStart = "What is the duration of the reported activity? - Report tax fraud or evasion - GOV.UK"
+  val whenActivityStart =
+    "What is the duration of the activity you are reporting? - Report tax fraud or evasion - GOV.UK"
 
   def selectDurationOfActivity: HowManyPeopleKnow.type = {
     onPage(whenActivityStart)

@@ -18,7 +18,8 @@ package uk.gov.hmrc.test.ui.pages
 
 object ActivityTimePeriodFuture extends BasePage {
 
-  val whenWillActivityLikelyHappen = "When will the activity likely happen? - Report tax fraud or evasion - GOV.UK"
+  val whenWillActivityLikelyHappen =
+    "When will the activity you are reporting likely happen? - Report tax fraud or evasion - GOV.UK"
 
   def selectWhenActivityWillHappen: HowManyPeopleKnow.type = {
     onPage(whenWillActivityLikelyHappen)

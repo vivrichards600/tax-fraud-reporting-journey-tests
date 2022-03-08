@@ -16,7 +16,6 @@
 
 package uk.gov.hmrc.test.ui.pages.Individual
 
-import net.bytebuddy.asm.Advice.Enter
 import uk.gov.hmrc.test.ui.pages.{BasePage, EnterAddress}
 
 object IndividualInformationCheck extends BasePage {

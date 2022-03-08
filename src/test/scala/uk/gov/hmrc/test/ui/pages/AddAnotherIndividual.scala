@@ -14,20 +14,22 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.test.ui.pages.Business
+package uk.gov.hmrc.test.ui.pages
 
-import uk.gov.hmrc.test.ui.pages.BasePage
+import uk.gov.hmrc.test.ui.pages.ActivitySourceOfInformation.selectActivitySourceOfInformation
+import uk.gov.hmrc.test.ui.pages.Individual.IndividualInformationCheck
 
-object ManualAddress extends BasePage {
+object AddAnotherIndividual extends BasePage {
 
-  val manualAddress: String = "Enter address - Report tax fraud or evasion - GOV.UK"
+  val addAnotherIndividual =
+    "You have added 2 individual - Report tax fraud or evasion - GOV.UK"
 
-  def manuallyEnterAddress: BusinessAddressConfirm.type = {
-    onPage(manualAddress)
-    findByID("countryCode").sendKeys("United Kingdom")
-    findByID("line1").sendKeys("Baker Street")
-    findByID("continue").click()
-    BusinessAddressConfirm
+  def enterNoneAdditionalPeopleInvolved: ActivitySourceOfInformation.type = {
+    onPage(addAnotherIndividual)
+    //TODO request more meaningful ID
+    findByID("value_1").click()
+    submitPage()
+    ActivitySourceOfInformation
   }
 
 }

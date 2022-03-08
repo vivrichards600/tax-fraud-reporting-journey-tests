@@ -19,7 +19,7 @@ package uk.gov.hmrc.test.ui.pages
 object DescriptionActivity extends BasePage {
 
   val descriptionActivity =
-    "Provide a concise description of the activity you are reporting - Report tax fraud or evasion - GOV.UK"
+    "Briefly describe the activity you are reporting - Report tax fraud or evasion - GOV.UK"
 
   val randomString: String = random.nextString(40)
 

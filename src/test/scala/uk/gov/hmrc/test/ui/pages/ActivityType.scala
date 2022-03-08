@@ -20,7 +20,7 @@ import uk.gov.hmrc.test.ui.utils.Lists._
 
 object ActivityType extends BasePage {
 
-  val activityType               = "What type of HMRC activity are you reporting? - Report tax fraud or evasion - GOV.UK"
+  val activityType               = "What type of activity are you reporting to HMRC? - Report tax fraud or evasion - GOV.UK"
   val reportableActivity: String = validActivityTypeList(random.nextInt(validActivityTypeList.length))
   val inputBox                   = "value"
 

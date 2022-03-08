@@ -19,7 +19,7 @@ package uk.gov.hmrc.test.ui.pages
 object DocumentationDescription extends BasePage {
 
   val describeInformation =
-    "Describe any supporting information you currently have - Report tax fraud or evasion - GOV.UK"
+    "Describe the supporting information you have - Report tax fraud or evasion - GOV.UK"
 
   def enterSupportingInformation: CheckYourAnswers.type = {
     onPage(describeInformation)

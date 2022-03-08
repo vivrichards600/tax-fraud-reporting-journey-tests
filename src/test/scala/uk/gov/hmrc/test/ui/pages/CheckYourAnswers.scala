@@ -18,7 +18,7 @@ package uk.gov.hmrc.test.ui.pages
 
 object CheckYourAnswers extends BasePage {
 
-  val summaryOfInformation = "Summary of provided information - Report tax fraud or evasion - GOV.UK"
+  val summaryOfInformation = "Check your submission - Report tax fraud or evasion - GOV.UK"
 
   def confirmAnswers: SubmitYourReport.type = {
     onPage(summaryOfInformation)

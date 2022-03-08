@@ -21,7 +21,7 @@ import uk.gov.hmrc.test.ui.pages.Individual.IndividualInformationCheck
 object AddAnotherPerson extends BasePage {
 
   val addAnotherPerson =
-    "Are there additional people involved in this activity you want to tell us about? - Report tax fraud or evasion - GOV.UK"
+    "You have added 1 individual - Report tax fraud or evasion - GOV.UK"
 
   def enterNoAdditionalPeopleInvolved: ActivitySourceOfInformation.type = {
     onPage(addAnotherPerson)

@@ -18,7 +18,7 @@ package uk.gov.hmrc.test.ui.pages
 
 object YourContactDetails extends BasePage {
 
-  val whatAreYourDetails = "What are your details? - Report tax fraud or evasion - GOV.UK"
+  val whatAreYourDetails = "Enter your contact details - Report tax fraud or evasion - GOV.UK"
 
   def enterContactDetails: AnySupportingInformation.type = {
     onPage(whatAreYourDetails)
