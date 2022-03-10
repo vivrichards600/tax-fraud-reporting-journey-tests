@@ -21,7 +21,7 @@ import org.openqa.selenium.By
 object DoNotUseThisService extends BasePage {
 
   val doNotUseThisService =
-    "You should not use this service to report this activity - Report tax fraud or evasion - GOV.UK"
+    "You should not use this service to report this activity. - Report tax fraud or evasion - GOV.UK"
 
   def result: String = {
     onPage(doNotUseThisService)
