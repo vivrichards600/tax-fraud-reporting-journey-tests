@@ -98,6 +98,11 @@ To execute ZAP tests locally using a remote-chrome browser
 ### Running tests using BrowserStack
 If you would like to run your tests via BrowserStack from your local development environment please refer to the [webdriver-factory](https://github.com/hmrc/webdriver-factory/blob/main/README.md/#user-content-running-tests-using-browser-stack) project.
 
+To download and run Browserstack binary execute the ./start_browserStack.sh
+Once Browserstack is running locally you can execute tests by running ./run_browserstack_tests.sh
+Review sessions via Browserstack Automate 
+Manually step through commented out configurations
+
 ## Installing local driver binaries
 
 This project supports UI test execution using Firefox (Geckodriver) and Chrome (Chromedriver) browsers. 

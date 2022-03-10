@@ -27,3 +27,7 @@ lib_managed
 src_managed/
 project/project
 project/target
+
+#Browserstack Binary
+BrowserStackLocal
+BrowserStackLocal-linux-x64.zip
