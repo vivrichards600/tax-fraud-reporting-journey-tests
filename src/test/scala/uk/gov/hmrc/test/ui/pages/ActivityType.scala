@@ -27,7 +27,7 @@ object ActivityType extends BasePage {
   def reportingValidActivity: PersonOrBusiness.type = {
     onPage(activityType)
     findByID(inputBox).sendKeys(reportableActivity)
-    findByID("value__option--0").click()
+    findByID("value-hint").click()
     submitPage()
     PersonOrBusiness
   }
@@ -36,7 +36,7 @@ object ActivityType extends BasePage {
     onPage(activityType)
     findByID(inputBox).clear()
     findByID(inputBox).sendKeys(activity)
-    findByID("value__option--0").click()
+    findByID("value-hint").click()
     submitPage()
     DoNotUseThisService
   }
