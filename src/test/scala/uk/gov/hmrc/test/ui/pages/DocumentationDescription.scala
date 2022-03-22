@@ -16,6 +16,8 @@
 
 package uk.gov.hmrc.test.ui.pages
 
+import uk.gov.hmrc.test.ui.pages.DescriptionActivity.random
+
 object DocumentationDescription extends BasePage {
 
   val describeInformation =
@@ -23,7 +25,7 @@ object DocumentationDescription extends BasePage {
 
   def enterSupportingInformation: CheckYourAnswers.type = {
     onPage(describeInformation)
-    findByID("value").sendKeys(random.nextString(10))
+    findByID("value").sendKeys(random.alphanumeric.take(10).mkString)
     submitPage()
     CheckYourAnswers
   }

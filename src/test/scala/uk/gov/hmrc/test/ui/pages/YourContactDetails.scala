@@ -20,12 +20,14 @@ object YourContactDetails extends BasePage {
 
   val whatAreYourDetails = "Enter your contact details - Report tax fraud or evasion - GOV.UK"
 
+  val randomString: String = random.alphanumeric.take(5).mkString
+
   def enterContactDetails: AnySupportingInformation.type = {
     onPage(whatAreYourDetails)
-    findByID("firstName").sendKeys(random.nextString(5))
-    findByID("lastName").sendKeys(random.nextString(5))
+    findByID("firstName").sendKeys(randomString)
+    findByID("lastName").sendKeys(randomString)
     findByID("tel").sendKeys("1234567890")
-    findByID("memorableWord").sendKeys(random.nextString(5))
+    findByID("memorableWord").sendKeys(randomString)
     submitPage()
     AnySupportingInformation
   }

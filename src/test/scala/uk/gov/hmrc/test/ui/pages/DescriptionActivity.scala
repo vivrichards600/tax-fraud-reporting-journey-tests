@@ -21,7 +21,7 @@ object DescriptionActivity extends BasePage {
   val descriptionActivity =
     "Briefly describe the activity you are reporting - Report tax fraud or evasion - GOV.UK"
 
-  val randomString: String = random.nextString(40)
+  val randomString: String = random.alphanumeric.take(40).mkString
 
   def enterActivityDescription: ProvideYourContactDetails.type = {
     onPage(descriptionActivity)
