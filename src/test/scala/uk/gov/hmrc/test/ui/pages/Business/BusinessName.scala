@@ -22,7 +22,7 @@ object BusinessName extends BasePage {
 
   val businessName = "What is the business's name? - Report tax fraud or evasion - GOV.UK"
 
-  val randomString: String = random.nextString(7)
+  val randomString: String = random.alphanumeric.take(7).mkString
 
   def enterBusinessName: TypeBusiness.type = {
     onPage(businessName)
