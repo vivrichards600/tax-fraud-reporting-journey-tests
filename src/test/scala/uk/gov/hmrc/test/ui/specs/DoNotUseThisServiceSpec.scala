@@ -28,8 +28,8 @@ class DoNotUseThisServiceSpec extends BaseSpec with TableDrivenPropertyChecks {
         ("otherActivity", "referrerText"),
         ("Activity related to drugs", "activity-related-to-drugs"),
         ("Smuggling", "smuggling"),
-        ("Benefit fraud (not including child benefit or tax credits)", "benefit-fraud-and-universal-credit"),
-        ("Universal credit fraud", "benefit-fraud-and-universal-credit"),
+        ("Benefit fraud (not including child benefit or tax credits)", "benefit-and-universal-credit"),
+        ("Universal credit fraud", "benefit-and-universal-credit"),
         ("Human trafficking", "human-trafficking"),
         ("Border crime", "immigration-border-crime")
       )
